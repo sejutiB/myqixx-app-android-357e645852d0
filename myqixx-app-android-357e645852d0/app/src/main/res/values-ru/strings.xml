@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="available_languages">
+    <item>английский</item>
+    <item>Итальянский</item>
+    <item>Испанский</item>
+    <item>Японский</item>
+    <item>Pусский</item>
+  </string-array>
+  <string name="loading">Загрузка…</string>
+  <string name="title_qix_home">ГЛАВНАЯ</string>
+  <string name="listening">Прослушивание…</string>
+  <string name="title_bag">Мешок</string>
+  <string name="title_info">Информация</string>
+  <string name="empty_field_error">Вставьте некоторые значения…</string>
+  <string name="invalid_value_error">Вставьте действительные данные…</string>
+  <string name="currencyLabel">Общая стоимость счета в QIXEUR</string>
+  <string name="permission_camera_rationale">Доступ к камере необходим для обнаружения</string>
+  <string name="no_camera_permission">Это приложение не может работать, потому что у него нет разрешения камеры. Приложение теперь выйдет.</string>
+  <string name="low_storage_error">Зависимости от детектора лица не могут быть загружены из-за низкого уровня хранения устройств</string>
+  <string name="barcode_header">Нажмите «Читать штрих-код», чтобы прочитать штрих-код</string>
+  <string name="read_barcode">Читать штрих-код</string>
+  <string name="use_flash">Использовать Flash</string>
+  <string name="barcode_success">Штрих-код успешно прочитан</string>
+  <string name="barcode_failure">Нет штрих-кода</string>
+  <string name="barcode_error">Ошибка чтения штрих-кода: %1$s</string>
+  <string name="search_title">Поиск…</string>
+  <string name="login_button">Авторизоваться</string>
+  <string name="recovery_button">Пароль восстановления</string>
+  <string name="create_account_button">Завести аккаунт</string>
+  <string name="email_hint">Эл. адрес</string>
+  <string name="password_hint">пароль</string>
+  <string name="localizationMessage">Включите локализацию…</string>
+  <string name="shareLocationMessage">Вы должны поделиться своим местоположением…</string>
+  <string name="venice_coin">ВЕНЕЦИЯ</string>
+  <string name="utilities_coin">КОММУНАЛЬНЫЕ МАТЕРИАЛЫ</string>
+  <string name="fuel_coin">ТОПЛИВНАЯ МОНЕТКА</string>
+  <string name="airline_coin">АВИАБИЛЕТЫ</string>
+  <string name="exchangeSlide">Вы действительно хотите обменять QIX?</string>
+  <string name="choice_yes">ДА</string>
+  <string name="choice_no">Нет</string>
+  <string name="myqix_item_name">имя</string>
+  <string name="myqix_item_surname">Фамилия</string>
+  <string name="myqix_item_email">Эл. адрес</string>
+  <string name="myqix_item_birthdate">Дата рождения</string>
+  <string name="myqix_item_address">Адрес</string>
+  <string name="myqix_item_locale">место действия</string>
+  <string name="myqix_item_gender">Пол</string>
+  <string name="myqix_item_phone_number">Номер телефона</string>
+  <string name="myqix_item_phone_number_verified">Телефон подтвержден</string>
+  <string name="myqix_item_email_verified">Проверено по электронной почте</string>
+  <string name="verified">проверенный</string>
+  <string name="unverified">непроверенный</string>
+  <string name="myqix_item_profile">МОЙ ПРОФАЙЛ</string>
+  <string name="myqix_item_settings">НАСТРОЙКИ ПРИЛОЖЕНИЯ</string>
+  <string name="myqix_item_account">МОЙ СЧЕТ ЗАКОНОДАТЕЛЬСТВА</string>
+  <string name="myqix_item_language">ЯЗЫКИ</string>
+  <string name="myqix_item_payment">МОЙ ПЛАТЕЖНЫЙ МЕТОД</string>
+  <string name="myqix_item_rate">ПРИЛОЖЕНИЕ</string>
+  <string name="myqix_item_term">УСЛОВИЯ ПОЛЬЗОВАНИЯ</string>
+  <string name="myqix_item_about">О КОМПАНИИ QIX</string>
+  <string name="myqix_item_signout">ВЫХОД</string>
+  <string name="myqix_child_personal">Личные данные</string>
+  <string name="myqix_child_contact">Контактная информация</string>
+  <string name="myqix_child_push">Всплывающее уведомление</string>
+  <string name="myqix_child_notification">Другие уведомления</string>
+  <string name="myqix_child_account">Добавить / удалить</string>
+  <string name="myqix_child_english">английский</string>
+  <string name="myqix_child_italian">итальянский</string>
+  <string name="myqix_child_spanish">испанский</string>
+  <string name="myqix_child_japanese">Японский</string>
+  <string name="title_activity_settings">настройки</string>
+  <string name="pref_header_general">Генеральная</string>
+  <string name="pref_title_social_recommendations">Включить социальные рекомендации</string>
+  <string name="pref_description_social_recommendations">Рекомендации для общения с людьми 
+ на основе истории сообщений</string>
+  <string name="pref_title_display_name">Отображаемое имя</string>
+  <string name="pref_title_system_sync_settings">Настройки синхронизации системы</string>
+  <string name="pref_header_notifications">Уведомления</string>
+  <string name="pref_title_new_message_notifications">Новые уведомления</string>
+  <string name="pref_title_ringtone">Мелодия</string>
+  <string name="pref_ringtone_silent">Молчит</string>
+  <string name="pref_title_vibrate">Вибрировать</string>
+  <string name="error_not_elements_found">Не найдено элементов…</string>
+  <string name="map_type_normal">Нормальный</string>
+  <string name="map_type_hybrid">гибрид</string>
+  <string name="map_type_terrain">Топографическая съемка</string>
+  <string name="transaction_accepted_message">Сделка принята!</string>
+  <string name="transaction_authorized_message">Сделка разрешена!</string>
+  <string name="rejected_transaction_message">Сделка, отвергнутая продавцом!</string>
+  <string name="not_autohrized_transaction_message">Сделка, не разрешенная продавцом!</string>
+  <string name="qixpay_details_insert_amount">Введите сумму, подлежащую выплате</string>
+  <string name="qixpay_pay_button_title">платить</string>
+  <string name="qixpay_qix_payment">Я хочу, чтобы QIX был частью платежа</string>
+  <string name="qixpay_amount_spent_format" formatted="false">Сумма, потраченная %.2f %s</string>
+  <string name="qixpay_tobe_paid_value_format" formatted="false">%.2f %s будет выплачено</string>
+  <string name="qixpay_saving_value_format" formatted="false">Вы сохранили %.2f %s</string>
+  <string name="activity_info_subtitle">Нужна поддержка? Наши ответы на часто задаваемые вопросы имеют большинство ответов.
+Но просто свяжитесь с нами, и мы разобрались.</string>
+  <string name="qixchange_currency_label_format">Общая стоимость счета в %s</string>
+  <string name="qixpay_list_all_items_filter">все</string>
+  <string name="activity_info_title">Поддержка</string>
+  <string name="qixpay_payment_success">Оплата завершена!</string>
+  <string name="qixpay_payment_error">Ошибка платежа!</string>
+  <string name="qixpay_payment_send_error">Нет подключения к серверу</string>
+  <string name="qixpay_payment_failure">Платеж не прошел!</string>
+  <string name="qixpay_start_transaction_error">Ошибка соединения с сервером!</string>
+  <string name="qixpay_anauthorized_request">Торговец не принимает эту транзакцию!</string>
+  <string name="qixpay_rejected_request">Сделка отклоняется!</string>
+  <string name="qixshake_error_404">Кампания не найдена или неактивна!</string>
+  <string name="qixshake_error_406">Вы уже выиграли!</string>
+  <string name="qixshake_error_410">Призы заканчиваются!</string>
+  <string name="qixshake_error_420">Больше свободных коктейлей!</string>
+  <string name="qixshake_error_500">Общая ошибка!</string>
+  <string name="qixpay_chart_total_amount">ИТОГО</string>
+  <string name="qixpay_balance_review_format" formatted="false">Мой баланс QIX: %s %s</string>
+  <string name="qixshake_win_message_format" formatted="false">Вы выигрываете %d %s %s</string>
+  <string name="email_validation_error">Вставьте правильный адрес электронной почты</string>
+  <string name="name_validation_error">Вставьте действительное имя</string>
+  <string name="surname_validation_error">Вставьте действительную фамилию</string>
+  <string name="phone_validation_error">Вставьте действительный номер телефона</string>
+  <string name="signup_address_field">Адрес *</string>
+  <string name="signup_city_field">Город *</string>
+  <string name="signup_password_message">Пароль должен содержать не менее 6 символов, включая число, символ, заглавную букву и строчную букву.</string>
+  <string name="signup_password_error">Пароль не отражает требуемые требования.</string>
+  <string name="signup_failed_message">Кажется, что-то не работало!</string>
+  <string name="signup_success_message">Вы успешно зарегистрированы! 
+Проверьте свою электронную почту, чтобы получить доступ к QIX</string>
+  <string name="qixpay_qix_return_message_format">Получите %d%% назад!</string>
+  <string name="home_gridview_empty_text">Нет доступных предложений</string>
+  <string name="intro_second_travel_button">ПУТЕШЕСТВОВАТЬ</string>
+  <string name="intro_second_media_button">СРЕДСТВА МАССОВОЙ ИНФОРМАЦИИ</string>
+  <string name="intro_second_smart_stadium_button">SMART STADIUM</string>
+  <string name="intro_second_shops_button">МАГАЗИНЫ</string>
+  <string name="intro_second_send_button">ОТПРАВИТЬ / ЗАПРОС QIX</string>
+  <string name="intro_second_airport_button">АЭРОПОРТ</string>
+  <string name="qix_pay_total_amount_phrase">ИТОГО</string>
+  <string name="qixpay_qix_total_amount_phrase">ПЛАТИТ С QIX</string>
+  <string name="qixpay_amount_to_pay_phrase">НЕОБХОДИМАЯ К ОПЛАТЕ СУММА</string>
+  <string name="qixpay_amount_qix_earned">QIX EARNED</string>
+  <string name="next_button_text">СЛЕДУЮЩИЙ</string>
+  <string name="recovery_success_message">Пароль был успешно восстановлен!</string>
+  <string name="recovery_failed_message">Errore при смене пароля!</string>
+  <string name="confirmation_code_message">Мы отправим вам электронное письмо, введите здесь код подтверждения</string>
+  <string name="recovery_password_invalid_email_message">Вставьте действующий адрес электронной почты!</string>
+  <string name="confirmation_code_error_message">Предоставленный код имеет неправильный формат</string>
+  <string name="confirm_password_error_message">Пароли не совпадают</string>
+  <string name="no_connectio_error_message">Нет соединения</string>
+  <string name="transaction_first_tab_title">QIX Pay and Buy</string>
+  <string name="pay_in_store_button_text">Оплата в магазине</string>
+  <string name="payButton">платить</string>
+  <string name="error_message_cannotConnectToHost">Не удается восстановить соединение!</string>
+  <string name="error_message_unknown">Неизвестная ошибка</string>
+  <string name="progress_message_payment_status">Получение статуса оплаты…</string>
+  <string name="progress_message_please_wait">Пожалуйста, подождите…</string>
+  <string name="progress_message_checkout_id">Получение идентификатора проверки…</string>
+  <string name="message_successful_payment">Оплата успешна…</string>
+  <string name="message_unsuccessful_payment">Платеж не прошел…</string>
+  <string name="qixpay_timeout_error">Тайм-аут запроса</string>
+  <string name="personal_data_signuot_advise">После того, как вы изменили свои данные, вам необходимо выйти из системы, чтобы изменения вступили в силу.</string>
+  <string name="warning_alert_title">Предупреждение</string>
+  <string name="qix_exit_sure_message">Вы действительно хотите выйти?</string>
+</resources>

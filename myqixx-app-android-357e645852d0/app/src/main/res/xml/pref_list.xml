@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="PROFILE">
+        <PreferenceScreen
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:title="Personal Data">
+            <EditTextPreference
+                android:key="name_preference"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:title="Name" />
+        </PreferenceScreen>
+        <PreferenceScreen android:title="Contact details">
+            <EditTextPreference
+                android:key="email_preference"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:title="Email" />
+            <EditTextPreference
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:key="phone_preference"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:title="Phone number" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="SETTINGS">
+
+    </PreferenceCategory>
+</PreferenceScreen>

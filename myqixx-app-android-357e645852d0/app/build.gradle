@@ -1,0 +1,204 @@
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+android {
+    configurations {
+        cleanedAnnotations
+        compile.exclude group: 'org.jetbrains', module: 'annotations'
+    }
+    signingConfigs {
+        keystore_1 {
+            keyAlias 'MyFirstKeyStore'
+            keyPassword 'richi1997'
+            storeFile file(rootProject.projectDir.path.concat("/keystore_1"))
+            storePassword 'richi1997'
+        }
+        keystore_dev {
+            keyAlias 'keystore_dev'
+            keyPassword 'richi1997'
+            storeFile file(rootProject.projectDir.path.concat("/keystore_dev"))
+            storePassword 'richi1997'
+        }
+    }
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "qix.app.qix"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 40
+        versionName "0.0.2.8"
+        testInstrumentationRunner "qix.app.qix.test_runner.DexTestRunner"
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+    }
+    buildTypes {
+
+        debug {
+            debuggable true
+            minifyEnabled false
+        }
+
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.keystore_1
+        }
+
+        prod {
+            initWith release
+            matchingFallbacks = ['release']
+
+            buildConfigField "String", 'BASE_URL', '"https://api.app.myqix.com/v0/"'
+            buildConfigField "String", 'ZENDESK_APP_ID', '"3ddae56ad79959beff07f7a03e1b036c756b6b551331764b"'
+            buildConfigField "String", 'ZENDESK_CLIENT_ID', '"mobile_sdk_client_5c68da9f10f6adc80218"'
+            buildConfigField "String", 'ZENDESK_ENDPOINT', '"https://myqix.zendesk.com"'
+            buildConfigField "String", 'PAYDOO_USER_ID', '"8ac9a4ce68c1e6670168f07e0304500d"'
+            buildConfigField "String", 'PAYDOO_PASSWORD', '"N6Xz62a2gw"'
+            buildConfigField "String", 'PAYDOO_ENTITY_ID', '"8ac9a4ce68c1e6670168f07e90be501a"'
+            buildConfigField "String", 'PAYDOO_ENDPOINT', '"https://oppwa.com/v1/"'
+           // buildConfigField "String", 'KALIGO_SECRET', '"WHBAdhbVvQnfLPBRtpKHR4wB"'
+            buildConfigField "String", 'KALIGO_SECRET', '"7tRZTeoe36q2aQse"'
+           // buildConfigField "String", 'KALIGO_BASE_URL', '"https://qix.kaligo.com/sign_in?login="'
+            buildConfigField "String", 'KALIGO_BASE_URL', '"https://qix.kaligo.com/whitelabel/qix/sign_in?login="'
+            buildConfigField "Integer", 'MAX_RADIUS', '30000'
+            applicationIdSuffix ".prod"
+        }
+
+        stg {
+            initWith debug
+            matchingFallbacks = ['debug']
+
+            buildConfigField "String", 'BASE_URL', '"https://api.app.stg.myqix.com/v0/"'
+            buildConfigField "String", 'ZENDESK_APP_ID', '"dcda72583f19cb176892ec26d38a54734211e7e524e6dc66"'
+            buildConfigField "String", 'ZENDESK_CLIENT_ID', '"mobile_sdk_client_a6483cbd48861f2eac60"'
+            buildConfigField "String", 'ZENDESK_ENDPOINT', '"https://myqix.zendesk.com"'
+            buildConfigField "String", 'PAYDOO_USER_ID', '"8a8294186659221201665d2a171c08d4"'
+            buildConfigField "String", 'PAYDOO_PASSWORD', '"efwEbPXAg8"'
+            buildConfigField "String", 'PAYDOO_ENTITY_ID', '"8a8294186659221201665d2ccec808e1"'
+            buildConfigField "String", 'PAYDOO_ENDPOINT', '"https://test.oppwa.com/v1/"'
+            buildConfigField "String", 'KALIGO_SECRET', '"9004b78eff8c8729"'
+            buildConfigField "String", 'KALIGO_BASE_URL', '"https://qix.kaligo-staging.xyz/whitelabel/qix/sign_in?login="'
+            buildConfigField "Integer", 'MAX_RADIUS', '1000000000'
+        }
+
+        dev {
+            initWith debug
+            matchingFallbacks = ['debug']
+
+            buildConfigField "String", 'BASE_URL', '"https://api.app.dev.myqix.com/v0/"'
+            buildConfigField "String", 'ZENDESK_APP_ID', '"983b1886b452cf25f85704bbb3a55cf241dd2bb9358feb58"'
+            buildConfigField "String", 'ZENDESK_CLIENT_ID', '"mobile_sdk_client_d716a7afc915de5e6aac"'
+            buildConfigField "String", 'ZENDESK_ENDPOINT', '"https://myqix.zendesk.com"'
+            buildConfigField "String", 'PAYDOO_USER_ID', '"8a8294186659221201665d2a171c08d4"'
+            buildConfigField "String", 'PAYDOO_PASSWORD', '"efwEbPXAg8"'
+            buildConfigField "String", 'PAYDOO_ENTITY_ID', '"8a8294186659221201665d2ccec808e1"'
+            buildConfigField "String", 'PAYDOO_ENDPOINT', '"https://test.oppwa.com/v1/"'
+            buildConfigField "String", 'KALIGO_SECRET', '"9004b78eff8c8729"'
+            buildConfigField "String", 'KALIGO_BASE_URL', '"https://qix.kaligo-staging.xyz/whitelabel/qix/sign_in?login="'
+            buildConfigField "Integer", 'MAX_RADIUS', '1000000000'
+            applicationIdSuffix ".dev"
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/androidx.exifinterface_exifinterface.version'
+    }
+    /*dataBinding {
+        enabled = true
+    }*/
+    lintOptions {
+        checkReleaseBuilds false
+    }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+}
+
+repositories {
+    flatDir {
+        maven { url 'https://maven.fabric.io/public' }
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha05'
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha05'
+    implementation 'androidx.vectordrawable:vectordrawable-animated:1.1.0-beta01'
+    implementation 'androidx.exifinterface:exifinterface:1.1.0-alpha01'
+    implementation 'androidx.browser:browser:1.0.0'
+
+    implementation 'androidx.preference:preference:1.1.0-alpha05'
+    implementation 'com.google.android.material:material:1.1.0-alpha06'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.vectordrawable:vectordrawable:1.1.0-beta01'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v13:1.0.0'
+
+    implementation "android.arch.navigation:navigation-fragment:1.0.0"
+    implementation "android.arch.navigation:navigation-ui:1.0.0"
+
+    implementation 'com.airbnb.android:lottie:3.0.7'
+    implementation 'com.ramotion.fluidslider:fluid-slider:0.3.1'
+    implementation 'com.shopify.mobilebuysdk:buy3:3.2.3'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'com.jakewharton.rxrelay2:rxrelay:2.1.0'
+    implementation 'com.jakewharton:butterknife:10.1.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
+    implementation 'com.facebook.fresco:fresco:1.13.0'
+
+    implementation 'net.danlew:android.joda:2.10.1.2'
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    implementation 'com.google.zxing:core:3.3.2'
+    implementation 'com.journeyapps:zxing-android-embedded:3.6.0@aar'
+    implementation 'com.daimajia.swipelayout:library:1.2.0@aar'
+    implementation 'agency.tango.android:material-intro-screen:0.0.5'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+    implementation 'com.mobsandgeeks:android-saripaar:2.0.3'
+    implementation 'com.leavjenn.smoothdaterangepicker:library:0.2.0'
+    implementation 'com.hbb20:ccp:2.2.2'
+    implementation 'com.github.midorikocak:currency-picker-android:1.1.9'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.github.jrvansuita:PickImage:2.2.4'
+
+    implementation 'cat.xojan:numpad:1.1.0'
+
+    implementation group: 'com.zendesk', name: 'support', version: '2.3.1'
+
+    implementation 'com.google.android.material:material:1.0.0'
+
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+
+    implementation 'com.google.android.gms:play-services-maps:16.1.0'
+    implementation 'com.google.android.gms:play-services-places:16.1.0'
+    implementation 'com.google.android.gms:play-services-wallet:16.0.1'
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
+
+    implementation 'com.google.firebase:firebase-ml-vision:18.0.2'
+    implementation 'com.google.firebase:firebase-core:16.0.6'
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
+
+    implementation 'io.card:android-sdk:5.5.1'
+
+    implementation 'androidx.test:rules:1.2.0-beta01'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:rules:1.2.0-beta01'
+    androidTestImplementation 'androidx.test:runner:1.2.0-beta01'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-beta01'
+
+    implementation project(':audioRecordLib-release')
+    implementation project(':soundCode2Lib-release')
+    implementation project(':oppwa.mobile-2.27.0')
+    implementation 'org.jetbrains:annotations-java5:15.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+
+    implementation project(path: ':croller')
+}
+
+apply plugin: 'com.google.gms.google-services'

@@ -1,0 +1,158 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="qix.app.qix.fragments.shaketutorial.shaketutorial_fourth">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/intro_slide_new2"
+        app:riv_corner_radius="40dp"
+        />
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/festoonsAnimation"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            app:lottie_fileName="festoons-animation.json"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_speed="2"
+            app:lottie_repeatCount="2"
+            app:layout_constraintBottom_toTopOf="@id/nextshake3"
+            app:layout_constraintEnd_toEndOf="@id/guidelineright"
+            app:layout_constraintStart_toStartOf="@id/guidelineleft"
+            app:layout_constraintTop_toTopOf="@id/guidelinetop" />
+
+        <TextView
+            android:id="@+id/textView_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="GOOD JOB!"
+            android:fontFamily="@font/aller_std_bold"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/guidelinetop"/>
+
+        <TextView
+            android:id="@+id/textView_topmessage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="CONGRATULATIONS! YOU NOW KNOW HOW TO MAKE A QIX SHAKE"
+            android:fontFamily="@font/lato"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineleft"
+            app:layout_constraintRight_toRightOf="@id/guidelineright"
+            app:layout_constraintTop_toBottomOf="@id/guidelinetoptextmessage"/>
+
+        <Button
+            android:id="@+id/nextshake3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/button_temporary_close"
+            app:layout_constraintBottom_toTopOf="@id/textView_middlemessage"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineleftimage"
+            app:layout_constraintRight_toRightOf="@id/guidelinerightimage"
+            app:layout_constraintTop_toBottomOf="@id/textView_topmessage" />
+
+        <TextView
+            android:id="@+id/textView_middlemessage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="STAY TUNED AND LOOK FOR OTHER QIX SHAKE EVENTS"
+            android:fontFamily="@font/lato"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineleft"
+            app:layout_constraintRight_toRightOf="@id/guidelineright"
+            app:layout_constraintTop_toBottomOf="@id/guidelinemiddletextmessage"/>
+
+        <TextView
+            android:id="@+id/textView_bottommessage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Check also other tutorials in settings section"
+            android:fontFamily="@font/lato"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineleft"
+            app:layout_constraintRight_toRightOf="@id/guidelineright"
+            app:layout_constraintBottom_toBottomOf="@id/guidelinebottom"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelinetop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelinebottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.85" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineleft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.16" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineright"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.84" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineleftimage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.35" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelinerightimage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.65" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelinetoptextmessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.25" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelinemiddletextmessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.65" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<agency.tango.materialintroscreen.parallax.ParallaxLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/topMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottomMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/leftMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.10" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/leftMargin2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.18" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/rigthMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.90" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/rigthMargin2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.82" />
+
+        <include
+            android:id="@+id/firstButton"
+            layout="@layout/layout_image_button_top"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="w,1:1"
+            app:layout_constraintEnd_toStartOf="@+id/secondButton"
+            app:layout_constraintStart_toStartOf="@+id/leftMargin"
+            app:layout_constraintTop_toTopOf="@+id/topMargin" />
+
+        <include
+            android:id="@+id/tenButton"
+            layout="@layout/layout_image_button_top"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="6dp"
+            app:layout_constraintDimensionRatio="w,1:1"
+            app:layout_constraintEnd_toEndOf="@+id/eigthButton"
+            app:layout_constraintHorizontal_bias="0.468"
+            app:layout_constraintStart_toStartOf="@+id/eigthButton"
+            app:layout_constraintTop_toBottomOf="@+id/eigthButton" />
+
+        <include
+            android:id="@+id/nineButton"
+            layout="@layout/layout_image_button_top"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/eigthButton"
+            app:layout_constraintDimensionRatio="h,1:1"
+            app:layout_constraintEnd_toStartOf="@+id/rigthMargin"
+            app:layout_constraintStart_toEndOf="@+id/eigthButton"
+            app:layout_constraintTop_toTopOf="@+id/eigthButton" />
+
+        <include
+            android:id="@+id/eigthButton"
+            layout="@layout/layout_image_button_top"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginStart="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/sevenButton"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/nineButton"
+            app:layout_constraintStart_toEndOf="@+id/sevenButton"
+            app:layout_constraintTop_toTopOf="@+id/sevenButton"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <include
+            android:id="@+id/sevenButton"
+            layout="@layout/layout_image_button_top"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="6dp"
+            app:layout_constraintDimensionRatio="h,1:1"
+            app:layout_constraintEnd_toStartOf="@+id/eigthButton"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/leftMargin"
+            app:layout_constraintTop_toBottomOf="@+id/fourButton" />
+
+        <include
+            android:id="@+id/fourButton"
+            layout="@layout/layout_image_button_top"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="6dp"
+            app:layout_constraintDimensionRatio="w,1:1"
+            app:layout_constraintEnd_toStartOf="@+id/fifthButton"
+            app:layout_constraintStart_toStartOf="@+id/leftMargin"
+            app:layout_constraintTop_toBottomOf="@+id/firstButton" />
+
+        <include
+            android:id="@+id/secondButton"
+            layout="@layout/layout_image_button_top"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginStart="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/firstButton"
+            app:layout_constraintDimensionRatio="w,1:1"
+            app:layout_constraintEnd_toStartOf="@+id/thirdButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/firstButton"
+            app:layout_constraintTop_toTopOf="@+id/firstButton" />
+
+        <include
+            android:id="@+id/fifthButton"
+            layout="@layout/layout_image_button_top"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginStart="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/fourButton"
+            app:layout_constraintDimensionRatio="w,1:1"
+            app:layout_constraintEnd_toStartOf="@+id/sixButton"
+            app:layout_constraintStart_toEndOf="@+id/fourButton"
+            app:layout_constraintTop_toTopOf="@+id/fourButton" />
+
+        <include
+            android:id="@+id/thirdButton"
+            layout="@layout/layout_image_button_top"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/secondButton"
+            app:layout_constraintDimensionRatio="w,1:1"
+            app:layout_constraintEnd_toStartOf="@+id/rigthMargin"
+            app:layout_constraintStart_toEndOf="@+id/secondButton"
+            app:layout_constraintTop_toTopOf="@+id/secondButton" />
+
+        <include
+            android:id="@+id/sixButton"
+            layout="@layout/layout_image_button_top"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/fifthButton"
+            app:layout_constraintDimensionRatio="w,1:1"
+            app:layout_constraintEnd_toStartOf="@+id/rigthMargin"
+            app:layout_constraintStart_toEndOf="@+id/fifthButton"
+            app:layout_constraintTop_toTopOf="@+id/fifthButton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</agency.tango.materialintroscreen.parallax.ParallaxLinearLayout>

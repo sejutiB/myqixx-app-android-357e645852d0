@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintDimensionRatio="h,1:1"
+        app:layout_constraintEnd_toStartOf="@+id/rigthImageMargin"
+        app:layout_constraintStart_toStartOf="@+id/leftImageMargin"
+        app:layout_constraintTop_toTopOf="@+id/topMargin"
+        app:srcCompat="@drawable/icon_email_signup" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/rigthMargin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/rigthInternalMargin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.90" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/rigthImageMargin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.60" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/leftMargin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/leftInternalMargin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/leftImageMargin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.40" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/topMargin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottomMargin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <Button
+        android:id="@+id/signupNextButton"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:background="@drawable/button_background_red"
+        android:text="@string/next_button_text"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/bottomMargin"
+        app:layout_constraintEnd_toStartOf="@+id/rigthInternalMargin"
+        app:layout_constraintStart_toStartOf="@+id/leftInternalMargin" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+
+        app:layout_constraintEnd_toStartOf="@+id/rigthInternalMargin"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/leftInternalMargin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email *"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/nameInputTextLayout_y"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/surnameInputTextLayout_y"
+        app:layout_constraintEnd_toStartOf="@+id/rigthInternalMargin"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/leftInternalMargin"
+        app:layout_constraintTop_toBottomOf="@+id/emailTextInputLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nameEditText_y"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name *"
+            android:inputType="textCapSentences|textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/surnameInputTextLayout_y"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/phoneInpuTextLayout_y"
+        app:layout_constraintEnd_toStartOf="@+id/rigthInternalMargin"
+        app:layout_constraintStart_toStartOf="@+id/leftInternalMargin"
+        app:layout_constraintTop_toBottomOf="@+id/nameInputTextLayout_y">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/surnameEditText_y"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Surname *"
+            android:inputType="textCapSentences|textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.hbb20.CountryCodePicker
+        android:id="@+id/countryCodePicker_y"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        app:ccp_textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/phoneInpuTextLayout_y"
+        app:layout_constraintStart_toStartOf="@+id/leftInternalMargin"
+        app:layout_constraintTop_toTopOf="@+id/phoneInpuTextLayout_y"
+        app:layout_constraintVertical_bias="1.0"
+        app:ccp_autoDetectCountry="true"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/phoneInpuTextLayout_y"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/signupNextButton"
+        app:layout_constraintEnd_toStartOf="@+id/rigthInternalMargin"
+        app:layout_constraintStart_toEndOf="@+id/countryCodePicker_y"
+        app:layout_constraintTop_toBottomOf="@+id/surnameInputTextLayout_y">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/phoneNumberEditText_y"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone number *"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

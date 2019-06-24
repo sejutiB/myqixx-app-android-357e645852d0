@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="gradientGray">#cdcdcd</color>
+    <color name="lighter_grey_border">#eeeeee</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#353535</color>
+    <color name="colorQixBlue">#011d38</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGreen">#00e676</color>
+    <color name="colorGreenDark">#038e3d</color>
+    <color name="colorGreenVeryDark">#1b5e20</color>
+    <color name="colorDanger">#da2c27</color>
+    <color name="colorDangerDark">#AB1C18</color>
+
+    <!--  Stack -->
+    <color name="colorBgTotal">#666565</color>
+    <color name="colorStartTotal">#363535</color>
+    <color name="colorBgQix">#ed5555</color>
+    <color name="colorStartQix">#a10d0d</color>
+    <color name="colorBgEur">#527bec</color>
+    <color name="colorStartEur">#1a3b94</color>
+    
+    <!-- Official Colors-->
+    <color name="redStart">#c11f41</color>
+    <color name="redEnd">#e52850</color>
+
+    <color name="orangeStart">#d25400</color>
+    <color name="orangeEnd">#ff6600</color>
+
+    <color name="violetStart">#9238a0</color>
+    <color name="violetEnd">#b94aca</color>
+
+    <color name="azureStart">#248197</color>
+    <color name="azureEnd">#2fa5c1</color>
+
+    <color name="greenStart">#6d9048</color>
+    <color name="greenEnd">#8ebb5e</color>
+
+    <color name="waterStart">#309a91</color>
+    <color name="waterEnd">#40c7bc</color>
+
+    <color name="yellowStart">#a58e34</color>
+    <color name="yellowEnd">#cfb343</color>
+
+    <color name="pinkStart">#b6397a</color>
+    <color name="pinkEnd">#e04796</color>
+
+    <color name="lightBlueStart">#2e5c91</color>
+    <color name="lightBlueEnd">#407cc0</color>
+
+    <color name="goldStart">#734a14</color>
+    <color name="goldEnd">#c17c22</color>
+
+    <color name="whiteStart">#f0f0f0</color>
+    <color name="whiteEnd">#f6f6f6</color>
+
+    <color name="blueStart">#011d38</color>
+    <color name="blueEnd">#054c90</color>
+
+    <color name="first_slide_background">#E91E63</color>
+    <color name="first_slide_buttons">#880E4F</color>
+
+    <color name="second_slide_background">#9C27B0</color>
+    <color name="second_slide_buttons">#4A148C</color>
+
+    <color name="third_slide_background">#009688</color>
+    <color name="third_slide_buttons">#004D40</color>
+
+    <color name="fourth_slide_background">#795548</color>
+    <color name="fourth_slide_buttons">#3E2723</color>
+
+    <color name="custom_slide_background">#3F51B5</color>
+    <color name="custom_slide_buttons">#1A237E</color>
+
+    <!--Splash Screen-->
+    <item name="splash_background" type="color">@color/colorPrimary</item>
+
+    <color name="qix_gray">#F1F3F4</color>
+
+    <!-- Space bar -->
+    <color name="space_background_color">#757575</color>
+    <color name="space_transparent">#00000000</color>
+    <color name="space_white">#ffffff</color>
+    <color name="space_default_color">#2A3137</color>
+    <color name="centre_button_color">#4285F4</color>
+    <color name="default_inactive_item_color">#9e9e9e</color>
+    <color name="default_active_item_color">#262626</color>
+    <color name="selected_item_color">#3fffffff</color>
+    <color name="badge_background_color">#932D25</color>
+    <color name="white_with_alpha">#bfffffff</color>
+    <color name="colorBackgroundHighlightWhite">#8dffffff</color>
+</resources>

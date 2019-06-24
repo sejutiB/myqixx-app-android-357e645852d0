@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/search"
+        android:title="Search..."
+        android:icon="@drawable/ic_icon_search_dark"
+        app:showAsAction="collapseActionView|ifRoom"
+        app:actionViewClass="android.widget.SearchView" />
+
+    <item
+        android:id="@+id/qr_code_item"
+        android:icon="@drawable/ic_icon_qrcode_dark"
+        android:title="@string/title_bag"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/map_item"
+        android:icon="@drawable/ic_place_icon_dark"
+        android:title="Map"
+        app:showAsAction="ifRoom" />
+</menu>

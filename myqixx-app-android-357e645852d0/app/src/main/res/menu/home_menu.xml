@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_info"
+        android:icon="@drawable/icon_contact"
+        android:title="@string/title_info"
+        app:showAsAction="ifRoom" />
+
+    <!--item
+        android:id="@+id/menu_qr_reader"
+        android:icon="@drawable/ic_icon_qrcode_dark"
+        android:title="@string/title_info"
+        app:showAsAction="ifRoom" /-->
+
+
+
+
+    <!--<item
+        android:id="@+id/menu_bag"
+        android:icon="@drawable/ic_shopping_basket_icon_dark"
+        android:title="@string/title_bag"
+        app:showAsAction="ifRoom" />-->
+</menu>

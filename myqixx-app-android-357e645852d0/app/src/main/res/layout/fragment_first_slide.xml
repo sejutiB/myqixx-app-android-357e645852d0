@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<agency.tango.materialintroscreen.parallax.ParallaxLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/buttonBackgroundImage"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/intro_slide_background" />
+
+        <View
+            android:id="@+id/myRectangleView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#b5141313"
+            app:layout_constraintBottom_toTopOf="@+id/bottomMargin"
+            app:layout_constraintEnd_toStartOf="@+id/rigthMargin"
+            app:layout_constraintStart_toStartOf="@+id/leftMargin"
+            app:layout_constraintTop_toTopOf="@+id/topMargin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/topMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottomMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/leftMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.10" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/leftMargin2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.25" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/rigthMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.90" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/rigthMargin2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.75" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/aller_std_regular"
+            android:text="WELCOME TO"
+            android:textColor="@color/white"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toStartOf="@+id/rigthMargin"
+            app:layout_constraintStart_toStartOf="@+id/leftMargin"
+            app:layout_constraintTop_toTopOf="@+id/topMargin" />
+
+        <ImageView
+            android:id="@+id/qixLogo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintDimensionRatio="w,1:1"
+            app:layout_constraintEnd_toStartOf="@+id/rigthMargin2"
+            app:layout_constraintStart_toStartOf="@+id/leftMargin2"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            app:srcCompat="@drawable/qix_app_icon" />
+
+        <Button
+            android:id="@+id/getStartedButton"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/button_background_red"
+            android:text="@string/get_started_button_title"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/myRectangleView"
+            app:layout_constraintEnd_toStartOf="@+id/rigthMargin2"
+            app:layout_constraintStart_toStartOf="@+id/leftMargin2" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/aller_std_light"
+            android:text="@string/first_intro_string"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toStartOf="@+id/rigthMargin"
+            app:layout_constraintStart_toStartOf="@+id/leftMargin"
+            app:layout_constraintTop_toBottomOf="@+id/qixLogo" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</agency.tango.materialintroscreen.parallax.ParallaxLinearLayout>

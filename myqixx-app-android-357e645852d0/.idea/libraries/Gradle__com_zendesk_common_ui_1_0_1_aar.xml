@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.zendesk:common-ui:1.0.1@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d49e021d79da3f676e7093070c98b05d/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d49e021d79da3f676e7093070c98b05d/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.zendesk/common-ui/1.0.1/665374a7ef36b5a7eb33c9a48cb00840a5da6693/common-ui-1.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.daimajia.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/productSwipeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:layout_marginBottom="5dp"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true">
+
+    <RelativeLayout
+        android:id="@+id/bottom_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/redStart"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/exchangeSlideImage"
+            android:layout_width="wrap_content"
+            android:layout_height="58dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:scaleType="center"
+            android:tint="@color/colorWhite"
+            app:srcCompat="@drawable/ic_baseline_delete_24px" />
+
+        <TextView
+            android:id="@+id/exchangeSlideText"
+            android:layout_width="wrap_content"
+            android:layout_height="58dp"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/exchangeSlideImage"
+            android:fontFamily="@font/roboto"
+            android:gravity="center"
+            android:background="@color/redStart"
+            android:text="@string/deleteSlide"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/slideDeleteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="58dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:background="@color/redStart"
+            android:text="Delete"
+            android:textColor="@color/colorWhite"
+            android:textSize="14sp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/redLine2"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_alignParentBottom="true"
+            >
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+
+    <!-- Surface View Start -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_qix_cart">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/productImageView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:scaleType="fitCenter"
+            app:riv_corner_radius="25dp"
+            app:layout_constraintBottom_toTopOf="@+id/redline"
+            app:layout_constraintDimensionRatio="h,1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/productTitleTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/roboto"
+            android:maxLines="1"
+            android:text="TextView"
+            android:textAlignment="textStart"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/triangoleImage"
+            app:layout_constraintStart_toEndOf="@+id/productImageView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/productPriceTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="8dp"
+            android:paddingRight="10dp"
+            android:text="2500"
+            android:maxLines="1"
+            android:textAlignment="textStart"
+            android:textColor="#757C89"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/triangoleImage"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/productImageView"
+            app:layout_constraintTop_toBottomOf="@+id/productTitleTextView" />
+
+        <ImageView
+            android:id="@+id/triangoleImage"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:rotation="180"
+            android:scaleType="fitXY"
+            android:tint="@color/redStart"
+            app:layout_constraintBottom_toTopOf="@+id/redline"
+            app:layout_constraintEnd_toStartOf="@+id/productQixPriceTextView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_triangle_right" />
+
+        <TextView
+            android:id="@+id/productQixPriceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:background="@color/redStart"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="7800 QIX"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/redline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/redline"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!-- Surface View End -->
+</com.daimajia.swipe.SwipeLayout>

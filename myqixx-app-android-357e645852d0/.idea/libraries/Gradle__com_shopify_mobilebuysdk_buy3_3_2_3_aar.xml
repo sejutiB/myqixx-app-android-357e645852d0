@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.shopify.mobilebuysdk:buy3:3.2.3@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4b21cc487f1f6e8b1ad1c45cf9a2ce8f/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4b21cc487f1f6e8b1ad1c45cf9a2ce8f/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.shopify.mobilebuysdk/buy3/3.2.3/d9cedfa9d0e3b1fd5b41a3e78010d49d916f6e1b/buy3-3.2.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

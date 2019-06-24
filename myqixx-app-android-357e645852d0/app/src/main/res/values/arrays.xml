@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="phone_countries">
+        <item>+39</item>
+        <item>+32</item>
+        <item>189</item>
+        <item>+39</item>
+        <item>+39</item>
+    </string-array>
+    <string-array name="availableLanguages" translatable="false">
+        <item>en</item>
+        <item>it</item>
+        <item>es</item>
+        <item>ja</item>
+    </string-array>
+    <string-array name="available_languages_codes" translatable="false">
+        <item>en</item>
+        <item>it</item>
+        <item>es</item>
+        <item>ja</item>
+        <item>ru</item>
+    </string-array>
+    <string-array name="list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+    <string-array name="list_preference_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="genders">
+        <item>N</item>
+        <item>M</item>
+        <item>F</item>
+    </string-array>
+
+    <string-array name="countries">
+        <item>Italy</item>
+        <item>USA</item>
+        <item>UK</item>
+        <item>Germany</item>
+        <item>France</item>
+        <item>Spain</item>
+        <item>Russia</item>
+    </string-array>
+</resources>

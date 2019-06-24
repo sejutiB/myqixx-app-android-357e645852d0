@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/lightBlueStart"/>
+            <corners android:radius="20dp"/>
+        </shape>
+    </item> <!-- pressed -->
+    <item android:state_focused="true" android:drawable="@color/lightBlueStart"/> <!-- focused -->
+    <item android:drawable="@drawable/gradient_light_blue"/> <!-- default -->
+</selector>

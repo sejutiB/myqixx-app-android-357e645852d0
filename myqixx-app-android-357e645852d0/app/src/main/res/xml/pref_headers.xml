@@ -1,0 +1,43 @@
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- These settings headers are only used on tablets. -->
+
+    <header android:title="@string/myqix_item_settings" />
+
+    <header android:fragment="qix.app.qix.SettingsSecondActivity$DataSyncPreferenceFragment"
+        android:icon="@drawable/ic_baseline_notifications_24px"
+        android:title="@string/myqix_child_push" />
+
+    <header
+        android:fragment="qix.app.qix.SettingsSecondActivity$DataSyncPreferenceFragment"
+        android:icon="@drawable/ic_baseline_notifications_none_24px"
+        android:title="@string/myqix_child_notification" />
+
+    <header android:title="@string/myqix_item_account" />
+
+    <header android:fragment="qix.app.qix.SettingsSecondActivity$DataSyncPreferenceFragment"
+        android:icon="@drawable/ic_baseline_add_24px"
+        android:title="@string/myqix_child_account" />
+
+    <header android:title="@string/myqix_item_language"
+        android:fragment="qix.app.qix.SettingsSecondActivity$LanguagesPreferenceFragment"
+        android:icon="@drawable/ic_baseline_language_24px" />
+
+    <header android:title="@string/myqix_item_payment"
+        android:fragment="qix.app.qix.SettingsSecondActivity$DataSyncPreferenceFragment"
+        android:icon="@drawable/ic_baseline_payment_24px" />
+
+    <header android:title="@string/myqix_item_rate"
+        android:fragment="qix.app.qix.SettingsSecondActivity$DataSyncPreferenceFragment"
+        android:icon="@drawable/ic_baseline_star_24px" />
+
+    <header android:title="@string/myqix_item_term"
+        android:fragment="qix.app.qix.SettingsSecondActivity$DataSyncPreferenceFragment"
+        android:icon="@drawable/ic_baseline_description_24px" />
+
+    <header android:title="@string/myqix_item_about"
+        android:fragment="qix.app.qix.SettingsSecondActivity$NotificationPreferenceFragment"
+        android:icon="@drawable/ic_icon_qixlogo_dark" />
+
+
+</preference-headers>

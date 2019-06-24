@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <!--  Gradient Bg for listrow -->
+            <solid android:color="#544168"/>
+            <corners android:radius="20dp"/>
+            <stroke android:color="@color/white"/>
+        </shape>
+
+    </item> <!-- pressed -->
+
+
+</selector>

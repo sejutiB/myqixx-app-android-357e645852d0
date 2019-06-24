@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "723409633339",
+    "firebase_url": "https://qixapp-c3c2b.firebaseio.com",
+    "project_id": "qixapp-c3c2b",
+    "storage_bucket": "qixapp-c3c2b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:723409633339:android:6f06997fe66bd786",
+        "android_client_info": {
+          "package_name": "qix.app.qix.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "723409633339-s7mcd19r0b77kb6mrgflmu7fp67a311f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "qix.app.qix.dev",
+            "certificate_hash": "165a8a0297ab399bf6e4898390014b1900515934"
+          }
+        },
+        {
+          "client_id": "723409633339-9he27e52rt6d7ld1s303fm96pmbo1a7n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpZhO2q3SMp5ajNgxN3D_mmw07mnoYjqs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "723409633339-9he27e52rt6d7ld1s303fm96pmbo1a7n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

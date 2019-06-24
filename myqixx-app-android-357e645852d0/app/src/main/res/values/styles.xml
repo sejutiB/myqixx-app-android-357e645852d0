@@ -1,0 +1,37 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/light_gray</item>-->
+        <item name="colorPrimary">#ED1B24</item>
+        <item name="colorPrimaryDark">#660000</item>
+        <item name="colorAccent">#000000</item>
+    </style>
+
+    <style name="NoUiAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowNoDisplay">true</item>
+    </style>
+
+    <declare-styleable name="SwitchButton">
+        <attr name="uncheckSrc" format="reference"></attr>
+        <attr name="checkSrc" format="reference"></attr>
+        <attr name="boardWidth" format="dimension"></attr>
+        <attr name="uncheckRevealColor" format="color"></attr>
+        <attr name="checkRevealColor" format="color"></attr>
+    </declare-styleable>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="available_languages">
+    <item>英語</item>
+    <item>イタリア</item>
+    <item>スペイン語</item>
+    <item>日本語</item>
+    <item>ロシア</item>
+  </string-array>
+  <string name="loading">読み込み中</string>
+  <string name="title_qix_home">ホーム</string>
+  <string name="listening">聞いている</string>
+  <string name="title_bag">バッグ</string>
+  <string name="title_info">情報</string>
+  <string name="empty_field_error">有効なデータを挿入...</string>
+  <string name="invalid_value_error">有効なデータを挿入...</string>
+  <string name="currencyLabel">QIXEURの合計口座額</string>
+  <string name="permission_camera_rationale">検出にはカメラへのアクセスが必要です</string>
+  <string name="no_camera_permission">このアプリケーションは、カメラ権限を持たないため実行できません。 アプリケーションは終了します。</string>
+  <string name="low_storage_error">顔の検出器の依存関係は、デバイスの保存容量が少ないためダウンロードできません</string>
+  <string name="barcode_header">[バーコードを読み取る]をクリックしてバーコードを読み取ります</string>
+  <string name="read_barcode">バーコードを読む</string>
+  <string name="use_flash">Flashを使用する</string>
+  <string name="barcode_success">バーコードは正常に読み取られました</string>
+  <string name="barcode_failure">バーコードがキャプチャされていない</string>
+  <string name="barcode_error">バーコード読み取りエラー：%1$s</string>
+  <string name="search_title">サーチ</string>
+  <string name="login_button">ログイン</string>
+  <string name="recovery_button">回復パスワード</string>
+  <string name="create_account_button">アカウントを作成する</string>
+  <string name="email_hint">Eメール</string>
+  <string name="password_hint">パスワード</string>
+  <string name="localizationMessage">ローカリゼーションを有効にする</string>
+  <string name="shareLocationMessage">あなたはあなたの場所を共有する必要があります</string>
+  <string name="venice_coin">ヴェニスコイン</string>
+  <string name="utilities_coin">ユーティリティー・コイン</string>
+  <string name="fuel_coin">燃料コイン</string>
+  <string name="airline_coin">AIRLINE COIN</string>
+  <string name="exchangeSlide">QIXを交換してもよろしいですか？</string>
+  <string name="choice_yes">はい</string>
+  <string name="choice_no">いいえ</string>
+  <string name="myqix_item_name">名</string>
+  <string name="myqix_item_surname">姓</string>
+  <string name="myqix_item_email">Eメール</string>
+  <string name="myqix_item_birthdate">誕生日</string>
+  <string name="myqix_item_address">住所</string>
+  <string name="myqix_item_locale">国籍</string>
+  <string name="myqix_item_gender">性別</string>
+  <string name="myqix_item_phone_number">電話番号</string>
+  <string name="myqix_item_phone_number_verified">電話で確認済み</string>
+  <string name="myqix_item_email_verified">メール確認済み</string>
+  <string name="verified">検証済み</string>
+  <string name="unverified">未確認</string>
+  <string name="myqix_item_profile">プロフィール</string>
+  <string name="myqix_item_settings">アプリケーションの設定</string>
+  <string name="myqix_item_account">マイ・ロイヤリティー・アカウント</string>
+  <string name="myqix_item_language">言語</string>
+  <string name="myqix_item_payment">お支払い方法</string>
+  <string name="myqix_item_rate">レートアプリ</string>
+  <string name="myqix_item_term">使用期間</string>
+  <string name="myqix_item_about">QIXについて</string>
+  <string name="myqix_item_signout">サインアウトする</string>
+  <string name="myqix_child_personal">個人データ</string>
+  <string name="myqix_child_contact">連絡先の詳細</string>
+  <string name="myqix_child_push">プッシュ通知</string>
+  <string name="myqix_child_notification">その他の通知</string>
+  <string name="myqix_child_account">追加 / 削除</string>
+  <string name="myqix_child_english">英語</string>
+  <string name="myqix_child_italian">イタリア語</string>
+  <string name="myqix_child_spanish">スペイン語</string>
+  <string name="myqix_child_japanese">日本の</string>
+  <string name="title_activity_settings">設定</string>
+  <string name="pref_header_general">一般</string>
+  <string name="pref_title_social_recommendations">社会的なおすすめを有効にする</string>
+  <string name="pref_description_social_recommendations">あなたのメッセージ履歴に基づいて連絡を取るための推奨事項</string>
+  <string name="pref_title_display_name">表示名</string>
+  <string name="pref_title_system_sync_settings">システム同期設定</string>
+  <string name="pref_header_notifications">通知</string>
+  <string name="pref_title_new_message_notifications">新しい通知</string>
+  <string name="pref_title_ringtone">着メロ</string>
+  <string name="pref_ringtone_silent">サイレント</string>
+  <string name="pref_title_vibrate">振動します</string>
+  <string name="error_not_elements_found">要素が見つかりません...</string>
+  <string name="map_type_normal">ノーマル</string>
+  <string name="map_type_hybrid">ハイブリッド</string>
+  <string name="map_type_terrain">地形調査</string>
+  <string name="transaction_accepted_message">取引が受け入れられました！</string>
+  <string name="transaction_authorized_message">承認された取引！</string>
+  <string name="rejected_transaction_message">商人によって拒否された取引！</string>
+  <string name="not_autohrized_transaction_message">商人によって承認されていない取引！</string>
+  <string name="qixpay_details_insert_amount">支払う金額を入力してください</string>
+  <string name="qixpay_pay_button_title">支払う</string>
+  <string name="qixpay_qix_payment">私はQIXを支払いの一部にしたい</string>
+  <string name="qixpay_amount_spent_format" formatted="false">費やした金額 %.2f %s</string>
+  <string name="qixpay_tobe_paid_value_format" formatted="false">支払う%.2f %s</string>
+  <string name="qixpay_saving_value_format" formatted="false">%.2f %s 保存しました</string>
+  <string name="activity_info_subtitle">サポートが必要ですか？ 私たちのFAQにはほとんどの回答があります。
+または単に私達に連絡したら、それを並べ替えます。</string>
+  <string name="qixchange_currency_label_format">%s の合計口座額</string>
+  <string name="qixpay_list_all_items_filter">すべて</string>
+  <string name="activity_info_title">サポート</string>
+  <string name="qixpay_payment_success">お支払い完了！</string>
+  <string name="qixpay_payment_error">支払いエラー！</string>
+  <string name="qixpay_payment_send_error">サーバーとの接続なし</string>
+  <string name="qixpay_payment_failure">支払いに失敗しました！</string>
+  <string name="qixpay_start_transaction_error">サーバーとの通信エラーです。</string>
+  <string name="qixpay_anauthorized_request">商人はこの取引を受け入れません！</string>
+  <string name="qixpay_rejected_request">取引は拒否されます！</string>
+  <string name="qixshake_error_404">キャンペーンが見つかりませんでした。</string>
+  <string name="qixshake_error_406">あなたはすでに勝った！</string>
+  <string name="qixshake_error_410">賞品は賞賛されます！</string>
+  <string name="qixshake_error_420">もう利用可能な揺れはありません！</string>
+  <string name="qixshake_error_500">一般的なエラー！</string>
+  <string name="qixpay_chart_total_amount">合計金額</string>
+  <string name="qixpay_balance_review_format" formatted="false">私のQIX残高： %s %s</string>
+  <string name="qixshake_win_message_format" formatted="false">あなたは%d %s %s勝つ</string>
+  <string name="email_validation_error">有効なメールアドレスを挿入する</string>
+  <string name="name_validation_error">有効な名前を挿入してください</string>
+  <string name="surname_validation_error">有効な姓を挿入する</string>
+  <string name="phone_validation_error">有効な電話番号を入力してください</string>
+  <string name="signup_address_field">住所 *</string>
+  <string name="signup_city_field">都市 *</string>
+  <string name="signup_password_message">パスワードには、数字、記号、大文字、小文字を含めて少なくとも6文字を含める必要があります。</string>
+  <string name="signup_password_error">パスワードに必要な要件が反映されていない</string>
+  <string name="signup_failed_message">何かがうまくいかなかったようです！</string>
+  <string name="signup_success_message">あなたはサインアップに成功しました！ 
+ QIXにアクセスするにはメールをチェックしてください</string>
+  <string name="qixpay_qix_return_message_format">%d%%戻ってください！</string>
+  <string name="home_gridview_empty_text">利用可能な提供はありません</string>
+  <string name="intro_second_travel_button">旅行</string>
+  <string name="intro_second_media_button">メディア</string>
+  <string name="intro_second_smart_stadium_button">スマートスタジアム</string>
+  <string name="intro_second_shops_button">ショップ</string>
+  <string name="intro_second_send_button">SEND / REQUEST QIX</string>
+  <string name="intro_second_airport_button">空港</string>
+  <string name="qix_pay_total_amount_phrase">合計金額</string>
+  <string name="qixpay_qix_total_amount_phrase">QIXの給料</string>
+  <string name="qixpay_amount_to_pay_phrase">支払う金額</string>
+  <string name="qixpay_amount_qix_earned">QIX EARNED</string>
+  <string name="next_button_text">次</string>
+  <string name="recovery_success_message">パスワードは正常に復元されました！</string>
+  <string name="recovery_failed_message">あなたのパスワードを変更中にErrore！</string>
+  <string name="confirmation_code_message">メールをお送りします。ここに確認コードを入力してください</string>
+  <string name="recovery_password_invalid_email_message">有効なメールを挿入してください！</string>
+  <string name="confirmation_code_error_message">提供されたコードの形式が正しくありません</string>
+  <string name="confirm_password_error_message">パスワードが一致しません</string>
+  <string name="no_connectio_error_message">接続なし</string>
+  <string name="transaction_first_tab_title">QIX Pay and Buy</string>
+  <string name="pay_in_store_button_text">店頭で支払い</string>
+  <string name="payButton">支払う</string>
+  <string name="error_message_cannotConnectToHost">接続を再開できません！</string>
+  <string name="error_message_unknown">未知のエラー</string>
+  <string name="progress_message_payment_status">支払いステータスの取得...</string>
+  <string name="progress_message_please_wait">お待ちください...</string>
+  <string name="progress_message_checkout_id">チェックアウトIDを取得しています...</string>
+  <string name="message_successful_payment">支払い完了...</string>
+  <string name="message_unsuccessful_payment">支払いに失敗しました...</string>
+  <string name="qixpay_timeout_error">要求のタイムアウト</string>
+  <string name="personal_data_signuot_advise">データを変更したら、ログアウトして変更を有効にする必要があります。</string>
+  <string name="warning_alert_title">警告</string>
+  <string name="qix_exit_sure_message">退室しますか？</string>
+</resources>

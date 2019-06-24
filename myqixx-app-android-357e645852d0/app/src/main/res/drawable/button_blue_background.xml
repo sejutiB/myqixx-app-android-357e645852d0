@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+        <item android:state_pressed="true">
+                <shape android:shape="rectangle">
+                        <!--  Gradient Bg for listrow -->
+                        <solid android:color="@color/blueStart"/>
+                        <corners android:radius="20dp"/>
+                </shape>
+        </item> <!-- pressed -->
+
+        <item android:state_focused="true">
+                <shape android:shape="rectangle">
+                        <!--  Gradient Bg for listrow -->
+                        <solid android:color="@color/blueStart"/>
+                        <corners android:radius="20dp"/>
+                </shape>
+        </item>
+
+        <item android:drawable="@drawable/gradient_blue" /> <!-- default -->
+</selector>

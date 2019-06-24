@@ -1,0 +1,10 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:title="Choose the app language"
+        android:key="@string/preference_current_locale_key"
+        android:defaultValue="en"
+        android:entries="@array/available_languages"
+        android:entryValues="@array/available_languages_codes" />
+
+</PreferenceScreen>

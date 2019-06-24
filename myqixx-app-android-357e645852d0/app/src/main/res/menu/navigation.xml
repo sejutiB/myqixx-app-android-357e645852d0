@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--<item
+        android:id="@+id/navigation_qix_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_qix_home" />
+
+    <item
+        android:id="@+id/navigation_qix_travel"
+        android:icon="@drawable/ic_baseline_public_24px"
+        android:title="@string/title_qix_travel" />
+
+    <item
+        android:id="@+id/navigation_qix_marketplace"
+        android:icon="@drawable/ic_baseline_shopping_basket_24px"
+        android:title="@string/title_qix_marketplace" />
+
+    <item
+        android:id="@+id/navigation_my_qix"
+        android:icon="@drawable/ic_baseline_settings_24px"
+        android:title="@string/title_my_qix" />-->
+
+    <item
+        android:id="@+id/navigation_qix_home"
+        android:icon="@drawable/nav_home"
+        android:title="@string/title_qix_home" />
+
+    <item
+        android:id="@+id/navigation_qix_travel"
+        android:icon="@drawable/nav_travel"
+        android:title="@string/title_qix_travel" />
+
+    <item
+        android:id="@+id/navigation_qix_marketplace"
+        android:icon="@drawable/nav_marketplace"
+        android:title="@string/title_qix_marketplace" />
+
+    <item
+        android:id="@+id/navigation_my_qix"
+        android:icon="@drawable/icon_profile"
+        android:title="@string/title_my_qix" />
+
+</menu>

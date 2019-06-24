@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string-array name="available_languages">
+        <item>English</item>
+        <item>Italian</item>
+        <item>Spanish</item>
+        <item>Japanese</item>
+        <item>Russian</item>
+    </string-array>
+    <string name="app_name" translatable="false">MyQIX</string>
+    <string name="loading">Loading…</string>
+    <string name="preference_current_locale_key" translatable="false">currentLocale</string>
+    <string name="title_qix_home">QIX</string>
+    <string name="title_my_qix" translatable="false">myQIX</string>
+    <string name="title_qix_pay" translatable="false">QIX Pay</string>
+    <string name="title_qix_marketplace" translatable="false">QIX MARKET PLACE</string>
+    <string name="title_qix_now" translatable="false">QIXNOW</string>
+    <string name="title_qix_travel" translatable="false">QIXTRAVEL</string>
+    <string name="listening">Listening…</string>
+    <string name="title_bag">Bag</string>
+    <string name="title_info">Info</string>
+    <string name="file_preferences_key" translatable="false">app.qix.preferences</string>
+    <string name="preference_access_token_key" translatable="false">accessToken</string>
+    <string name="preference_refresh_token_key" translatable="false">refreshToken</string>
+    <string name="preference_id_token_key" translatable="false">idToken</string>
+    <string name="preference_token_duration_key" translatable="false">expiresIn</string>
+    <string name="preference_id_token_expiration_key" translatable="false">expireTimestamp</string>
+    <string name="preference_refresh_token_expiration_key" translatable="false">expireRefreshTokenTimestamp</string>
+    <string name="preference_is_logged_key" translatable="false">isLogged</string>
+    <string name="preference_already_logged_key" translatable="false">isAlreadyLogged</string>
+    <string name="empty_field_error">Insert some values…</string>
+    <string name="invalid_value_error">Insert valid data…</string>
+    <string name="currencyLabel">Total account value in QIXEUR</string>
+    <string name="preference_username_key" translatable="false">username</string>
+    <string name="preference_password_key" translatable="false">password</string>
+    <string name="qix_int_format" translatable="false">%d Qx</string>
+    <string name="ok" translatable="false">OK</string>
+    <string name="permission_camera_rationale">Access to the camera is needed for detection</string>
+    <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
+    <string name="low_storage_error">Face detector dependencies cannot be downloaded due to low device storage</string>
+    <string name="barcode_header">Click \"Read Barcode\" to read a barcode</string>
+    <string name="read_barcode">Read Barcode</string>
+    <string name="auto_focus" translatable="false">Auto Focus</string>
+    <string name="use_flash">Use Flash</string>
+    <string name="barcode_success">Barcode read successfully</string>
+    <string name="barcode_failure">No barcode captured</string>
+    <string name="barcode_error">\"Error reading barcode: %1$s\"</string>
+    <string name="login_endpoint" translatable="false">login</string>
+    <string name="title_qix_buy" translatable="false">QIXBUY</string>
+    <string name="search_title">Search…</string>
+    <string name="settings">Settings</string>
+    <string name="login_button">Login</string>
+    <string name="recovery_button">Recovery password</string>
+    <string name="create_account_button">Create an account</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="localizationMessage">Turn on the localization…</string>
+    <string name="shareLocationMessage">You should share your location…</string>
+    <string name="venice_coin">VENICE COIN</string>
+    <string name="utilities_coin">UTILITIES COIN</string>
+    <string name="fuel_coin">FUEL COIN</string>
+    <string name="airline_coin">AIRLINE COIN</string>
+    <string name="exchangeSlide">Are you sure to exchange your QIX?</string>
+    <string name="choice_yes">YES</string>
+    <string name="choice_no">NO</string>
+    <string name="myqix_item_name">Name</string>
+    <string name="myqix_item_surname">Surname</string>
+    <string name="myqix_item_email">Email</string>
+    <string name="myqix_item_birthdate">Birthdate</string>
+    <string name="myqix_item_address">Address</string>
+    <string name="myqix_item_locale">Locale</string>
+    <string name="myqix_item_gender">Gender</string>
+    <string name="myqix_item_phone_number">Phone number</string>
+    <string name="myqix_item_phone_number_verified">Phone verified</string>
+    <string name="myqix_item_email_verified">Email verified</string>
+    <string name="verified">Verified</string>
+    <string name="unverified">Unverified</string>
+    <string name="myqix_item_profile">Personal Data</string>
+    <string name="myqix_item_settings">APPLICATION SETTINGS</string>
+    <string name="myqix_item_account">MY LOYALTY ACCOUNTS</string>
+    <string name="myqix_item_language">LANGUAGES</string>
+    <string name="myqix_item_payment">MY PAYMENTS METHOD</string>
+    <string name="myqix_item_rate">RATE APP</string>
+    <string name="myqix_item_term">Terms Of Use</string>
+    <string name="myqix_item_about">ABOUT QIX</string>
+    <string name="myqix_item_signout">SIGN OUT</string>
+    <string name="myqix_child_personal">Personal data</string>
+    <string name="myqix_child_contact">Contact details</string>
+    <string name="myqix_child_push">Push notifications</string>
+    <string name="myqix_child_notification">Other notifications</string>
+    <string name="myqix_child_account">Add / Remove</string>
+    <string name="myqix_child_english">English</string>
+    <string name="myqix_child_italian">Italian</string>
+    <string name="myqix_child_spanish">Spanish</string>
+    <string name="myqix_child_japanese">Japanese</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="pref_header_general">General</string>
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name" translatable="false">John Smith</string>
+    <string name="pref_header_data_sync" translatable="false">Data &amp; sync</string>
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+    <string name="pref_header_notifications">Notifications</string>
+    <string name="pref_title_new_message_notifications">New notifications</string>
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+    <string name="pref_title_vibrate">Vibrate</string>
+    <string name="preference_qixpay_amount_key" translatable="false">qixpayUserTransactionAmount</string>
+    <string name="error_not_elements_found">No elements found…</string>
+    <string name="map_type_normal">Normal</string>
+    <string name="map_type_hybrid">Hybrid</string>
+    <string name="map_type_satellite" translatable="false">Satellite</string>
+    <string name="map_type_terrain">Terrain</string>
+    <string name="transaction_accepted_message">Transaction accepted!</string>
+    <string name="transaction_authorized_message">Transaction authorized!</string>
+    <string name="rejected_transaction_message">Transaction rejected by the merchant!</string>
+    <string name="not_autohrized_transaction_message">Transaction not authorized by the merchant!</string>
+    <string name="title_activity_maps" translatable="false">Map</string>
+    <string name="qixpay_details_insert_amount">Type in amount to be paid</string>
+    <string name="qixpay_pay_button_title">Pay</string>
+    <string name="qixpay_qix_payment">I want QIX to be part of the payment</string>
+    <string name="qixpay_amount_spent_format" formatted="false">Amount spent %.2f %s</string>
+    <string name="qixpay_tobe_paid_value_format" formatted="false">%.2f %s to be paid</string>
+    <string name="qixpay_num_of_qix_format" translatable="false">%d QIX</string>
+    <string name="qixpay_eur_value_format" translatable="false">%.2f %s</string>
+    <string name="qixpay_saving_value_format" formatted="false">You saved %.2f %s</string>
+    <string name="activity_info_subtitle">Need support? Our FAQs have most of the answers.\
+Or just contact us and we will sort it out.</string>
+    <string name="qixchange_currency_label_format">Total account value in %s</string>
+    <string name="qixpay_num_qix_currency_format" formatted="false" translatable="false">%d %s</string>
+    <string name="qixpay_list_all_items_filter">ALL</string>
+    <string name="activity_info_title">Support</string>
+    <string name="qixpay_payment_success">Payment complete!</string>
+    <string name="qixpay_payment_error">Payment error!</string>
+    <string name="qixpay_payment_send_error">No connection with the server</string>
+    <string name="qixpay_payment_failure">Payment failed!</string>
+    <string name="qixpay_start_transaction_error">Error communicating with the server!</string>
+    <string name="qixpay_anauthorized_request">The merchant doesn\'t accept this transaction!</string>
+    <string name="qixpay_rejected_request">The transaction is rejected!</string>
+    <string name="qixshake_error_404">Campaign not found or inactive!</string>
+    <string name="qixshake_error_406">You have already won!</string>
+    <string name="qixshake_error_410">The prizes are termited!</string>
+    <string name="qixshake_error_420">No more shakes available!</string>
+    <string name="qixshake_error_500">Generic error!</string>
+    <string name="qixpay_chart_total_amount">TOTAL AMOUNT</string>
+    <string name="qixpay_plus_qix_format" translatable="false">+%d QIX</string>
+    <string name="qixpay_balance_review_format" formatted="false">My QIX Balance: %s %s</string>
+    <string name="qixshake_win_message_format" formatted="false">You win %d %s %s</string>
+    <string name="double_string_format" translatable="false">%.2f</string>
+    <string name="google_maps_signature_secret" translatable="false">e-2zJh21wrg-cx4qciDdljdHQ8I=</string>
+    <string name="email_validation_error">Inserit a valid email address</string>
+    <string name="name_validation_error">Insert a valid name</string>
+    <string name="surname_validation_error">Insert a valid surname</string>
+    <string name="phone_validation_error">Insert a valid phone number</string>
+    <string name="signup_address_field">Address *</string>
+    <string name="signup_city_field">City *</string>
+    <string name="signup_password_message">The password must contain at least 6 characters including a number, a symbol, a capital letter and a lowercase letter.</string>
+    <string name="signup_password_error">The password does not reflect the required requirements</string>
+    <string name="signup_failed_message">It seems that something didn\'t work! Please try again</string>
+    <string name="signup_success_message">Follow the link in your message and you are good to go!</string>
+    <string name="qixpay_qix_return_message_format">Get %d%% back!</string>
+    <string name="checkout_ui_callback_scheme" translatable="false">checkoutui</string>
+    <string name="home_gridview_empty_text">No offers available</string>
+    <string name="preference_is_first_run_key" translatable="false">first_run</string>
+    <string name="intro_second_smart_button" translatable="false">SMART CITIES</string>
+    <string name="intro_second_travel_button">TRAVEL</string>
+    <string name="intro_second_qix_market" translatable="false">QIXMARKET</string>
+    <string name="intro_second_media_button">MEDIA</string>
+    <string name="intro_second_smart_stadium_button">SMART STADIUM</string>
+    <string name="intro_second_shops_button">SHOPS</string>
+    <string name="intro_second_send_button">SEND/REQUEST QIX</string>
+    <string name="intro_second_smart_driving" translatable="false">SMART DRIVING</string>
+    <string name="intro_second_airport_button">AIRPORT</string>
+    <string name="intro_second_smart_life_button" translatable="false">SMART LIFE</string>
+    <string name="numer_negative_format" translatable="false">-%s</string>
+    <string name="numer_positive_format" translatable="false">+%s</string>
+    <string name="preference_user_qix_currency" translatable="false">userQixCurrency</string>
+    <string name="qix_pay_total_amount_phrase">TOTAL AMOUNT</string>
+    <string name="qixpay_qix_total_amount_phrase">PAID WITH QIX</string>
+    <string name="qixpay_amount_to_pay_phrase">AMOUNT TO BE PAID</string>
+    <string name="qixpay_amount_qix_earned">QIX EARNED</string>
+    <string name="next_button_text">Next</string>
+    <string name="default_qix_unit" translatable="false">Qx</string>
+    <string name="default_no_value_unit" translatable="false">--</string>
+    <string name="recovery_success_message">Your password was successfully restored!</string>
+    <string name="recovery_failed_message">Errore while changing your password!</string>
+    <string name="confirmation_code_message">We send you an email, enter here the confirmation code</string>
+    <string name="recovery_password_invalid_email_message">Insert a valid email!</string>
+    <string name="confirmation_code_error_message">The provided code haven\'t the right format</string>
+    <string name="confirm_password_error_message">Passwords doesn\'t match</string>
+    <string name="account_confirmation_message">It seems your account has not been verified yet. Please check your inbox.\n\n Do you need another confirmation email? </string>
+    <string name="no_connectio_error_message">No connection</string>
+    <string name="transaction_first_tab_title">QIX Pay and Buy</string>
+    <string name="transaction_second_tab_title" translatable="false">QIX Shake</string>
+    <string name="pay_in_store_button_text">Pay in store</string>
+    <string name="payButton">Pay in App</string>
+    <string name="error_message_cannotConnectToHost">Cannot retrive connection!</string>
+    <string name="error_message_unknown">Unknown error</string>
+    <string name="button_ok" translatable="false">OK</string>
+    <string name="progress_message_payment_status">Getting payment status…</string>
+    <string name="progress_message_please_wait">Please wait...</string>
+    <string name="progress_message_checkout_id">Getting the checkout id...</string>
+    <string name="message_successful_payment">Payment successful...</string>
+    <string name="message_unsuccessful_payment">Payment failed...</string>
+    <string name="qixpay_timeout_error">Request Timeout</string>
+    <string name="personal_data_signuot_advise">Once you have changed your data you will need to log out for the changes to take effect.</string>
+    <string name="warning_alert_title">Warning</string>
+    <string name="qix_exit_sure_message">Are you sure to exit?</string>
+    <string name="myqix_item_faq">FAQ</string>
+    <string name="myqix_item_privacy">Privacy Policy</string>
+    <string name="qixpay_wait_for_approve">Your payment is pending for approval!</string>
+    <string name="preference_user_id" translatable="false">userId</string>
+    <string name="title_cart_menu_item" translatable="false">Cart</string>
+    <string name="google_maps_api_key" translatable="false">AIzaSyBpZhO2q3SMp5ajNgxN3D_mmw07mnoYjqs</string>
+    <string name="preference_user_country" translatable="false">userCountry</string>
+    <string name="deleteSlide">Are you sure to delete this item?</string>
+    <string name="no_elements_in_cart">No elements in cart...</string>
+    <string name="sign_in_trouble">Reset your password</string>
+    <string name="open_a_ticket">Contact us</string>
+    <string name="send_support_email">Send us an email</string>
+    <string name="checkout_button_title">Checkout</string>
+    <string name="save_button_title">Save</string>
+    <string name="get_started_button_title">Get Started</string>
+    <string name="first_intro_string">New way of Earning Quick and Easy</string>
+    <string name="close_button_title">Close</string>
+    <string name="continue_button_title">Continue</string>
+    <string name="choose_qix_title">Amount available in QIX EUR</string>
+    <string name="recovery_password_title">Recovery password</string>
+    <string name="second_intro_title">Smart, easy and exiting ways to get QIX whereever you go</string>
+    <string name="sign_up_button_title">Sign up</string>
+    <string name="third_intro_title">Get more QIX faster - Exchange other loyalty currencies to QIX</string>
+    <string name="join_the_revolution_button_title">Join the revolution</string>
+    <string name="waiting_merchant_message">Waiting for the merchant!</string>
+    <string name="cannot_check_transaction_error">Cannot check transaction</string>
+    <string name="qixpay_num_of_qix_get_format">+ %d QIX guadagati dalla transazione</string>
+    <string name="payment_start_message">The payment will start in seconds</string>
+    <string name="textview_email_recovery_instructions">Enter your email below and we will send you a verification code to reset your password</string>
+    <string name="title_activity_verification_link">VerificationLinkActivity</string>
+    <string name="title_activity_faq">FAQActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

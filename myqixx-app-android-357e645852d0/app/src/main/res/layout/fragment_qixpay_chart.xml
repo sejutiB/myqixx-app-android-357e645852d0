@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <com.sdsmdg.harjot.crollerTest.Croller
+        android:id="@+id/circle_wheel"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintBottom_toTopOf="@id/paybutton"
+        app:layout_constraintEnd_toStartOf="@+id/chartGuideLine7"
+        app:layout_constraintStart_toStartOf="@+id/chartGuideLine6"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <qix.app.pieChart.PieGraph
+        android:id="@+id/pieGraph"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:rotation="90"
+        app:layout_constraintBottom_toBottomOf="@+id/circle_wheel"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/chartGuideLine4"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/chartGuideLine3"
+        app:layout_constraintTop_toTopOf="@+id/circle_wheel" />
+
+    <TextView
+        android:id="@+id/balanceRecapText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:textAlignment="center"
+        android:fontFamily="@font/aller_std_regular"
+        android:text="@string/qixpay_balance_review_format"
+        android:textColor="@color/colorQixBlue"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/topGuideLine"
+        app:layout_constraintEnd_toStartOf="@+id/chartGuideLine5"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="@+id/chartGuideLine" />
+
+    <TextView
+        android:id="@+id/grapthTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/aller_std_bold"
+        android:text="TOTAL VALUE"
+        android:textColor="@color/colorQixBlue"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/pieGraph"
+        app:layout_constraintEnd_toStartOf="@+id/chartGuideLine4"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/chartGuideLine3"
+        app:layout_constraintTop_toTopOf="@+id/pieGraph"
+        app:layout_constraintVertical_bias="0.42000002" />
+
+    <TextView
+        android:id="@+id/eurTextField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:fontFamily="@font/aller_std_bold"
+        android:text="8.90 EUR"
+        android:textColor="@color/colorQixBlue"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/chartGuideLine4"
+        app:layout_constraintStart_toStartOf="@+id/chartGuideLine3"
+        app:layout_constraintTop_toBottomOf="@+id/grapthTitleTextView" />
+
+    <TextView
+        android:id="@+id/qixpaySavingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/aller_std_regular"
+        android:text="Saving"
+        android:textColor="@color/redEnd"
+        app:layout_constraintEnd_toStartOf="@+id/chartGuideLine4"
+        app:layout_constraintStart_toStartOf="@+id/chartGuideLine3"
+        app:layout_constraintTop_toBottomOf="@+id/eurTextField" />
+
+    <Button
+        android:id="@+id/paybutton"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:background="@drawable/button_background_red"
+        android:text="@string/next_button_text"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/bottomGuideLine"
+        app:layout_constraintEnd_toStartOf="@+id/chartGuideLine5"
+        app:layout_constraintStart_toStartOf="@+id/chartGuideLine" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/topGuideLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/medianGuideLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.60" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottomGuideLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.97" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/chartGuideLine1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintGuide_percent="0.34" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/chartGuideLine3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.20" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/chartGuideLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/chartGuideLine6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.07" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/chartGuideLine7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.93" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/chartGuideLine4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/chartGuideLine5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/chartGuideLine2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.675" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/legentLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/minusButton"
+        app:layout_constraintStart_toStartOf="@+id/chartGuideLine"
+        app:layout_constraintTop_toBottomOf="@+id/pieGraph">
+
+        <View
+            android:id="@+id/legendBlock1"
+            android:layout_width="25dp"
+            android:layout_height="0dp"
+            android:background="@drawable/button_red_background"
+            app:layout_constraintDimensionRatio="h,1:1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/legendBlock3"
+            android:layout_width="25dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/button_red_background"
+            app:layout_constraintDimensionRatio="h,1:1"
+            app:layout_constraintTop_toBottomOf="@+id/legendBlock1" />
+
+        <TextView
+            android:id="@+id/legendText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Legend 1"
+            app:layout_constraintBottom_toBottomOf="@+id/legendBlock1"
+            app:layout_constraintStart_toEndOf="@+id/legendBlock1"
+            app:layout_constraintTop_toTopOf="@+id/legendBlock1" />
+
+        <TextView
+            android:id="@+id/legendText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Legend 2"
+            app:layout_constraintBottom_toBottomOf="@+id/legendBlock3"
+            app:layout_constraintStart_toEndOf="@+id/legendBlock3"
+            app:layout_constraintTop_toTopOf="@+id/legendBlock3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/minusButton"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/aller_std_bold"
+        android:text="-"
+        android:textSize="52sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/paybutton"
+        app:layout_constraintEnd_toStartOf="@+id/plusButton"
+        app:layout_constraintStart_toStartOf="@+id/chartGuideLine"
+         />
+
+    <Button
+        android:id="@+id/plusButton"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="10dp"
+        android:text="+"
+        android:textSize="52sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/paybutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/minusButton"
+       />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/audioRecordLib-release/audioRecordLib-release.iml" filepath="$PROJECT_DIR$/audioRecordLib-release/audioRecordLib-release.iml" />
+      <module fileurl="file://$PROJECT_DIR$/croller/croller.iml" filepath="$PROJECT_DIR$/croller/croller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myqixx-app-android-357e645852d0.iml" filepath="$PROJECT_DIR$/myqixx-app-android-357e645852d0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oppwa.mobile-2.27.0/oppwa.mobile-2.27.0.iml" filepath="$PROJECT_DIR$/oppwa.mobile-2.27.0/oppwa.mobile-2.27.0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/soundCode2Lib-release/soundCode2Lib-release.iml" filepath="$PROJECT_DIR$/soundCode2Lib-release/soundCode2Lib-release.iml" />
+    </modules>
+  </component>
+</project>
