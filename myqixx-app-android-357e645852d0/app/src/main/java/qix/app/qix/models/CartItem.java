@@ -71,7 +71,7 @@ public final class CartItem {
     Integer qixNum = 0;
     String percent = variantTitle.split("\\/")[1].replaceAll("\\D+","");
     if(!percent.isEmpty()){
-      qixNum = (int) Math.ceil(price.doubleValue() * Integer.valueOf(percent).doubleValue());
+      qixNum = (int) Integer.valueOf(percent);
     }
     return qixNum * quantity;
   }

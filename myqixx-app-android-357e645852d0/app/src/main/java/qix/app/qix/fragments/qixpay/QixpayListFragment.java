@@ -25,6 +25,7 @@ import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -61,7 +62,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import timber.log.Timber;
 
-public class QixpayListFragment extends Fragment implements SearchView.OnQueryTextListener, AdapterView.OnItemClickListener, SwipeRefreshLayout.OnRefreshListener, QixLocationInterface {
+import static android.widget.SearchView.*;
+
+public class QixpayListFragment extends Fragment implements OnQueryTextListener, AdapterView.OnItemClickListener, SwipeRefreshLayout.OnRefreshListener, QixLocationInterface {
 
     @BindView(R.id.notFoundTText)
     TextView notFoundText;
@@ -69,18 +72,52 @@ public class QixpayListFragment extends Fragment implements SearchView.OnQueryTe
     @BindView(R.id.qixpaySwipeLayout)
     SwipeRefreshLayout pullToRefresh;
 
-   // @BindView(R.id.transactionsTabLayout)
-   // TabLayout tabLayout;
+    // @BindView(R.id.transactionsTabLayout)
+    // TabLayout tabLayout;
 
     private List<PartnerResponse> partners = new ArrayList<>();
     private QixpayListAdapter listAdapter;
     private HashMap<String, String> categories;
-
+    private ListView list;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_qixpay_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_qixpay_list, container, false);
+
+        Toolbar custom = view.findViewById(R.id.toolbar3);
+        SearchView searchView = view.findViewById(R.id.searchView);
+        searchView.setOnQueryTextListener(new OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                listAdapter.getFilter().filter(newText);
+                return true;
+            }
+        });
+        custom.inflateMenu(R.menu.search);
+        custom.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.map_item:
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("shops", (Serializable) partners);
+
+                        Intent map = new Intent(getActivity(), MapsActivity.class);
+                        map.putExtras(bundle);
+                        startActivity(map);
+                        break;
+
+                }
+                return false;
+
+            }
+        });
         setHasOptionsMenu(true);
         ButterKnife.bind(this, view);
 
@@ -112,7 +149,7 @@ public class QixpayListFragment extends Fragment implements SearchView.OnQueryTe
             }
         });*/
 
-        ListView list = view.findViewById(R.id.qixpay_list);
+        list = view.findViewById(R.id.qixpay_list);
         list.setAdapter(listAdapter);
         list.setEmptyView(notFoundText);
         list.setOnItemClickListener(this);
@@ -120,8 +157,8 @@ public class QixpayListFragment extends Fragment implements SearchView.OnQueryTe
         return view;
     }
 
-    private void getCategories(final Location userLocation){
-        if(userLocation != null) {
+    private void getCategories(final Location userLocation) {
+        if (userLocation != null) {
             pullToRefresh.setRefreshing(true);
             AsyncRequest.getPartnersCategories(getActivity(), new Callback<List<CategoryResponse>>() {
                 @Override
@@ -129,7 +166,7 @@ public class QixpayListFragment extends Fragment implements SearchView.OnQueryTe
                     if (response.isSuccessful()) {
                         List<CategoryResponse> result = response.body();
 
-                     //   tabLayout.removeAllTabs();
+                        //   tabLayout.removeAllTabs();
                         categories.clear();
 
                         assert result != null;
@@ -137,7 +174,7 @@ public class QixpayListFragment extends Fragment implements SearchView.OnQueryTe
 
                         for (Object o : categories.entrySet()) {
                             Map.Entry pair = (Map.Entry) o;
-                           // tabLayout.addTab(tabLayout.newTab().setText(pair.getValue().toString()));
+                            // tabLayout.addTab(tabLayout.newTab().setText(pair.getValue().toString()));
                         }
 
                         getPartners(userLocation);
@@ -152,78 +189,78 @@ public class QixpayListFragment extends Fragment implements SearchView.OnQueryTe
                     pullToRefresh.setRefreshing(false);
                 }
             });
-        }else{
+        } else {
             Helpers.presentToast("Turn on Localization", Toast.LENGTH_SHORT);
             pullToRefresh.setRefreshing(false);
         }
     }
 
-    private void addCategoriesToMap(List<CategoryResponse> categoriesList, HashMap<String, String> categoriesMap){
-      //*  categoriesMap.put("", getResources().getString(R.string.qixpay_list_all_items_filter));
-       categoriesMap.put("", Objects.requireNonNull(listAdapter.getcontext()).getResources().getString(R.string.qixpay_list_all_items_filter));
+    private void addCategoriesToMap(List<CategoryResponse> categoriesList, HashMap<String, String> categoriesMap) {
+        //*  categoriesMap.put("", getResources().getString(R.string.qixpay_list_all_items_filter));
+        categoriesMap.put("", Objects.requireNonNull(listAdapter.getcontext()).getResources().getString(R.string.qixpay_list_all_items_filter));
 
         CategoryResponse temp;
-        for(int i = 0; i < categoriesList.size(); i++){
+        for (int i = 0; i < categoriesList.size(); i++) {
             temp = categoriesList.get(i);
             categoriesMap.put(temp.getId(), temp.getName());
         }
     }
 
-    private void getPartners(Location userLocation){
+    private void getPartners(Location userLocation) {
         AsyncRequest.getPartners(getActivity(), userLocation.getLatitude(), userLocation.getLongitude(), Constants.MAX_RADIUS, new Callback<List<PartnerResponse>>() {
-                @Override
-                public void onResponse(@NonNull Call<List<PartnerResponse>> call, @NonNull Response<List<PartnerResponse>> response) {
+            @Override
+            public void onResponse(@NonNull Call<List<PartnerResponse>> call, @NonNull Response<List<PartnerResponse>> response) {
 
-                    if (response.isSuccessful()) {
+                if (response.isSuccessful()) {
 
-                        List<PartnerResponse> result = response.body();
+                    List<PartnerResponse> result = response.body();
 
-                        if (partners.size() > 0) {
-                            partners.clear();
-                        }
-
-                        PartnerResponse temp;
-
-                        assert result != null;
-                        for (int i = 0; i < result.size(); i++) {
-                            temp = result.get(i);
-                            String category;
-
-                            if (!categories.isEmpty()) {
-                                category = categories.get(temp.getCategoryId());
-                            } else {
-                                category = "";
-                            }
-
-                            temp.setCategory(category);
-                            partners.add(temp);
-                        }
-
-                        listAdapter.notifyDataSetChanged();
+                    if (partners.size() > 0) {
+                        partners.clear();
                     }
 
-                    pullToRefresh.setRefreshing(false);
+                    PartnerResponse temp;
+
+                    assert result != null;
+                    for (int i = 0; i < result.size(); i++) {
+                        temp = result.get(i);
+                        String category;
+
+                        if (!categories.isEmpty()) {
+                            category = categories.get(temp.getCategoryId());
+                        } else {
+                            category = "";
+                        }
+
+                        temp.setCategory(category);
+                        partners.add(temp);
+                    }
+
+                    listAdapter.notifyDataSetChanged();
                 }
 
-                @Override
-                public void onFailure(@NonNull Call<List<PartnerResponse>> call, @NonNull Throwable t) {
-                    Timber.d("Errore partner %s", t.getLocalizedMessage());
-                    pullToRefresh.setRefreshing(false);
-                }
-            });
+                pullToRefresh.setRefreshing(false);
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<List<PartnerResponse>> call, @NonNull Throwable t) {
+                Timber.d("Errore partner %s", t.getLocalizedMessage());
+                pullToRefresh.setRefreshing(false);
+            }
+        });
     }
 
     @Override
     public void onCreateOptionsMenu(@NotNull Menu menu, @NotNull MenuInflater inflater) {
         inflater.inflate(R.menu.search, menu);
 
-        MenuItem qrCodeButton = menu.findItem(R.id.qr_code_item);
+      /*  MenuItem qrCodeButton = menu.findItem(R.id.qr_code_item);
         qrCodeButton.setOnMenuItemClickListener(menuItem -> {
             // launch barcode activity.
             Intent intent = new Intent(getActivity(), BarcodeCaptureActivity.class);
             startActivityForResult(intent, Constants.RC_BARCODE_CAPTURE);
             return true;
-        });
+        });*/
 
         MenuItem mapItem = menu.findItem(R.id.map_item);
         mapItem.setOnMenuItemClickListener(menuItem -> {
@@ -239,7 +276,7 @@ public class QixpayListFragment extends Fragment implements SearchView.OnQueryTe
             return true;
         });
 
-        SearchManager searchManager = (SearchManager) Objects.requireNonNull(getActivity()).getSystemService(Context.SEARCH_SERVICE);
+     /* SearchManager searchManager = (SearchManager) Objects.requireNonNull(getActivity()).getSystemService(Context.SEARCH_SERVICE);
         MenuItem searchMenuItem = menu.findItem(R.id.search);
         SearchView searchView =  (SearchView) searchMenuItem.getActionView();
 
@@ -247,10 +284,23 @@ public class QixpayListFragment extends Fragment implements SearchView.OnQueryTe
 
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
         searchView.setSubmitButtonEnabled(true);
-        searchView.setOnQueryTextListener(this);
+        searchView.setOnQueryTextListener(new OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                listAdapter.getFilter().filter(newText);
+                return true;
+            }
+        });*/
+
+
     }
 
-    private void filterData(QixpayListAdapter.QixpayFilter f, String s){
+    private void filterData(QixpayListAdapter.QixpayFilter f, String s) {
         f.filter(s);
     }
 
@@ -261,13 +311,14 @@ public class QixpayListFragment extends Fragment implements SearchView.OnQueryTe
 
     @Override
     public boolean onQueryTextChange(String s) {
-        filterData((QixpayListAdapter.QixpayFilter) listAdapter.getFilter(), s);
+       listAdapter.getFilter().filter(s);
+       //* filterData((QixpayListAdapter.QixpayFilter) listAdapter.getFilter(), s);
         return true;
     }
 
     private PartnerResponse getPartnerById(String partnerId) {
-        for(PartnerResponse partner : partners) {
-            if(partner.getId().equals(partnerId)) {
+        for (PartnerResponse partner : partners) {
+            if (partner.getId().equals(partnerId)) {
                 return partner;
             }
         }
@@ -289,23 +340,23 @@ public class QixpayListFragment extends Fragment implements SearchView.OnQueryTe
 
                         final PartnerResponse partner = getPartnerById(partnerId);
 
-                        if(partner != null){
+                        if (partner != null) {
                             Timber.d("Found partner: " + partner.getAmount() + " " + partner.getId());
 
                             new Handler().postDelayed(() -> {
                                 HashMap<String, Serializable> data1 = new HashMap<>();
                                 data1.put("partner", partner);
-                                Helpers.startNewActivity(QixpayActivity.class,false, true, data1);
+                                Helpers.startNewActivity(QixpayActivity.class, false, true, data1);
                             }, 500);
-                        }else{
-                            Helpers.presentToast("Partner non trovato!", Toast.LENGTH_SHORT);
+                        } else {
+                            Helpers.presentToast("Partner not found!", Toast.LENGTH_SHORT);
                         }
                     } catch (JSONException e) {
                         Helpers.presentToast(getResources().getString(R.string.barcode_error), Toast.LENGTH_SHORT);
                     }
                 }
             }
-        }else{
+        } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
@@ -320,11 +371,11 @@ public class QixpayListFragment extends Fragment implements SearchView.OnQueryTe
 
     @Override
     public void onRefresh() {
-        if(MainActivity.getCurrentItemIndex() == Constants.PageIndexes.QIXPAY_PAGE_INDEX.getValue()){
+        if (MainActivity.getCurrentItemIndex() == Constants.PageIndexes.QIXPAY_PAGE_INDEX.getValue()) {
             Location userLocation = MainActivity.getCurrentLocation();
-            if(userLocation != null) {
+            if (userLocation != null) {
                 getCategories(userLocation);
-            }else{
+            } else {
                 pullToRefresh.setRefreshing(false);
                 Helpers.presentToast("Turn on localization", Toast.LENGTH_SHORT);
             }
@@ -334,7 +385,7 @@ public class QixpayListFragment extends Fragment implements SearchView.OnQueryTe
     @Override
     public void onLocationUpdate(Location location, boolean isFirstTime) {
 
-        if(isFirstTime && pullToRefresh != null){
+        if (isFirstTime && pullToRefresh != null) {
             getCategories(location);
         }
     }

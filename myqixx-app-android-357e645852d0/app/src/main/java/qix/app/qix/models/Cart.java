@@ -84,7 +84,7 @@ public class Cart {
     Integer total = 0;
     for(CartItem i : cartItems()){
       Integer percent = Integer.valueOf(i.variantTitle.split("\\/")[1].replaceAll("\\D+",""));
-      total += (int) Math.ceil(i.price.doubleValue() * percent.doubleValue() * i.quantity);
+      total += percent * i.quantity;
     }
     return total;
   }
@@ -151,4 +151,9 @@ public class Cart {
       lock.writeLock().unlock();
     }
   }
+
+ /* public int getItemNumber(){
+
+    return cartItems().size();
+  }*/
 }

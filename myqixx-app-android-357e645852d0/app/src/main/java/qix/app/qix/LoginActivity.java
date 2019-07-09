@@ -76,7 +76,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if(!Helpers.getBooleanPreference(R.string.preference_is_first_run_key)){
             activityIntent = new Intent(this, IntroActivity.class);
             startActivity(activityIntent);
-           //* Helpers.setPreference(R.string.preference_is_first_run_key, true);
+          //*  Helpers.setPreference(R.string.preference_is_first_run_key, true);
         }else{
             if(Helpers.shouldRequestCode()){
                 Helpers.requestUnlockScreen(this, Constants.LOCK_REQUEST_CODE);

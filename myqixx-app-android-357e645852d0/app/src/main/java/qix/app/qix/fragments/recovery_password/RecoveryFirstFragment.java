@@ -1,6 +1,10 @@
 package qix.app.qix.fragments.recovery_password;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -19,7 +24,9 @@ import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import com.mobsandgeeks.saripaar.annotation.Order;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Objects;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -30,6 +37,7 @@ import qix.app.qix.helpers.Helpers;
 import qix.app.qix.helpers.custom_views.QixViewPager;
 import qix.app.qix.helpers.interfaces.RecoveryFlowInterface;
 import qix.app.qix.models.MessageResponse;
+import qix.app.qix.models.ProfileResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -44,6 +52,7 @@ public class RecoveryFirstFragment extends Fragment implements Validator.Validat
     private Validator validator;
     private QixViewPager pager;
     private boolean nextPressed = false;
+
 
     private TextInputLayout emailTextInputLayout;
 
@@ -63,6 +72,8 @@ public class RecoveryFirstFragment extends Fragment implements Validator.Validat
 
         emailEditText.setOnFocusChangeListener(this);
         Button nextButton = view.findViewById(R.id.signupNextButton);
+        Button cancelButton = view.findViewById(R.id.change_of_mind_button);
+        TextView contactByEmail = view.findViewById(R.id.textView_emailUs);
 
         pager = getActivity().findViewById(R.id.signupViewPager);
         progressBar = getActivity().findViewById(R.id.signupProgress);
@@ -74,6 +85,20 @@ public class RecoveryFirstFragment extends Fragment implements Validator.Validat
         nextButton.setOnClickListener(view1 -> {
             nextPressed = true;
             validator.validate();
+        });
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               Objects.requireNonNull(getActivity()).finish();
+            }
+        });
+
+        contactByEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendEmail();
+            }
         });
 
         return view;
@@ -149,5 +174,23 @@ public class RecoveryFirstFragment extends Fragment implements Validator.Validat
         }catch (ClassCastException e){
             e.printStackTrace();
         }
+    }
+
+    private void sendEmail(){
+
+        PackageInfo pInfo = null;
+        try {
+            pInfo = getActivity().getPackageManager().getPackageInfo(getActivity().getPackageName(), 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        String version = pInfo.versionName;
+
+        Intent emailintent = new Intent(android.content.Intent.ACTION_SEND);
+        emailintent.setType("plain/text");
+        emailintent.putExtra(android.content.Intent.EXTRA_EMAIL,new String[] {"support@myqix.com" });
+        emailintent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Customer Care");
+        emailintent.putExtra(android.content.Intent.EXTRA_TEXT,"Time: " +Calendar.getInstance().getTime().toString() +"\n" + "App version: "+ version+"\n"+"Android version: "+ Build.VERSION.RELEASE+"\n\n"+"--Write below--");
+        startActivity(Intent.createChooser(emailintent, "Send mail..."));
     }
 }

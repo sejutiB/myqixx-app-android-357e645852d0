@@ -320,4 +320,5 @@ public class CartActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
     }
+
 }

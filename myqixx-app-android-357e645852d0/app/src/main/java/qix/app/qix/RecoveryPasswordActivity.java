@@ -12,6 +12,7 @@ import java.util.List;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+
 import qix.app.qix.fragments.recovery_password.RecoveryFirstFragment;
 import qix.app.qix.fragments.recovery_password.RecoverySecondFragment;
 import qix.app.qix.fragments.recovery_password.RecoveryThirdFragment;
@@ -24,18 +25,19 @@ public class RecoveryPasswordActivity extends AppCompatActivity implements Recov
 
     private QixViewPager pager;
     private QixRecoveryPasswordFragmentPagerAdapter adapter;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setTitle("Recovery password");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
+        //* setTitle("Recovery password");
+        //* getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //* getSupportActionBar().setHomeButtonEnabled(true);
         setContentView(R.layout.activity_signup);
 
         pager = findViewById(R.id.signupViewPager);
-        pager.disableSwipe(!BuildConfig.DEBUG);
-
+        // pager.disableSwipe(!BuildConfig.DEBUG);
+        pager.disableSwipe(true);
         pager.setOffscreenPageLimit(3);
         List<Fragment> pages = new ArrayList<>();
         pages.add(new RecoveryFirstFragment());
@@ -51,10 +53,10 @@ public class RecoveryPasswordActivity extends AppCompatActivity implements Recov
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == android.R.id.home) {
-            if(pager.getCurrentItem() > 0){
+        if (item.getItemId() == android.R.id.home) {
+            if (pager.getCurrentItem() > 0) {
                 pager.setCurrentItem(pager.getCurrentItem() - 1);
-            }else{
+            } else {
                 finish();
             }
         }
@@ -62,7 +64,7 @@ public class RecoveryPasswordActivity extends AppCompatActivity implements Recov
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
+   /* @Override
     public void onBackPressed() {
         /*if(pager.getCurrentItem() != Constants.QIXSIGNUP_FOURTH_PAGE_INDEX){
             if(pager.getCurrentItem() > 0){
@@ -70,8 +72,8 @@ public class RecoveryPasswordActivity extends AppCompatActivity implements Recov
             }else{
                 super.onBackPressed();
             }
-        }*/
-    }
+        }
+    }*/
 
     @Override
     public void onEmailReceived(String email) {

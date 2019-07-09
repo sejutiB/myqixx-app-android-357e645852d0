@@ -24,6 +24,7 @@ import com.mobsandgeeks.saripaar.annotation.Pattern;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -61,7 +62,7 @@ public class SignupFirstFragment extends Fragment implements Validator.Validatio
     @Pattern(regex = "^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$", messageResId = R.string.phone_validation_error)
     private TextInputEditText phoneNumberEditText;*/
 
-    private Button nextButton;
+    private Button nextButton, cancelButton;
     private Validator validator;
     private QixViewPager pager;
     private boolean nextPressed = false;

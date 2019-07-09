@@ -94,7 +94,7 @@ public interface QixEndpointInterface {
     Call<TransactionArrayResponse> getAllTransactions(@Header("Authorization") String idToken, @Query("from") String fromIsoDate, @Query("to") String toIsoDate, @Query("lastEvaluatedKey") String lastEvaluatedKey);
 
     @POST("payments/{transactionId}")
-    Call<MessageResponse> sendGatewayCheck(@Header("Authorization") String idToken,@Path("transactionId") String transactionId, @Body GatewayCheckRequest adyenCheckRequest);
+    Call<MessageResponse> sendGatewayCheck(@Header("Authorization") String idToken, @Path("transactionId") String transactionId, @Body GatewayCheckRequest adyenCheckRequest);
 
     @GET("me")
     Call<ProfileResponse> getProfileData(@Header("Authorization") String idToken);

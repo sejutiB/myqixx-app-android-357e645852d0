@@ -223,7 +223,7 @@ public class TransactionReportActivity extends AppCompatActivity implements Swip
                     adapter.notifyDataSetChanged();
 
                 }else{
-                    Helpers.presentToast("Nessuna transazione!", Toast.LENGTH_SHORT);
+                    Helpers.presentToast("No transactions!", Toast.LENGTH_SHORT);
                 }
 
                 if(lastKey != null)
@@ -235,7 +235,7 @@ public class TransactionReportActivity extends AppCompatActivity implements Swip
             @Override
             public void onFailure(@NonNull Call<TransactionArrayResponse> call, @NonNull Throwable t) {
                 pullToRefresh.setRefreshing(false);
-                Helpers.presentToast("Errore "+t.getLocalizedMessage(), Toast.LENGTH_SHORT);
+               Helpers.presentToast("Error "+t.getLocalizedMessage(), Toast.LENGTH_SHORT);
                 if(lastKey != null)
                     footerProgressBar.setVisibility(View.GONE);
             }

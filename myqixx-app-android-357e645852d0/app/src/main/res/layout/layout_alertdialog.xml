@@ -15,7 +15,7 @@
         android:background="?attr/colorPrimary"
         android:theme="?attr/actionBarTheme"
         app:logo="@android:drawable/ic_dialog_alert"
-        app:title="  Oops!"
+        app:title="  Login error!"
         app:titleTextColor="@android:color/background_light" />
 
     <TextView

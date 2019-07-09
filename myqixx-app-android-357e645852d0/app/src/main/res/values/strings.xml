@@ -160,7 +160,7 @@ Or just contact us and we will sort it out.</string>
     <string name="signup_password_message">The password must contain at least 6 characters including a number, a symbol, a capital letter and a lowercase letter.</string>
     <string name="signup_password_error">The password does not reflect the required requirements</string>
     <string name="signup_failed_message">It seems that something didn\'t work! Please try again</string>
-    <string name="signup_success_message">Follow the link in your message and you are good to go!</string>
+    <string name="signup_success_message">Check your SMS, we have sent you an account confirmation message.</string>
     <string name="qixpay_qix_return_message_format">Get %d%% back!</string>
     <string name="checkout_ui_callback_scheme" translatable="false">checkoutui</string>
     <string name="home_gridview_empty_text">No offers available</string>
@@ -227,7 +227,7 @@ Or just contact us and we will sort it out.</string>
     <string name="first_intro_string">New way of Earning Quick and Easy</string>
     <string name="close_button_title">Close</string>
     <string name="continue_button_title">Continue</string>
-    <string name="choose_qix_title">Amount available in QIX EUR</string>
+    <string name="choose_qix_title">Amount available in QIX</string>
     <string name="recovery_password_title">Recovery password</string>
     <string name="second_intro_title">Smart, easy and exiting ways to get QIX whereever you go</string>
     <string name="sign_up_button_title">Sign up</string>
@@ -235,7 +235,7 @@ Or just contact us and we will sort it out.</string>
     <string name="join_the_revolution_button_title">Join the revolution</string>
     <string name="waiting_merchant_message">Waiting for the merchant!</string>
     <string name="cannot_check_transaction_error">Cannot check transaction</string>
-    <string name="qixpay_num_of_qix_get_format">+ %d QIX guadagati dalla transazione</string>
+    <string name="qixpay_num_of_qix_get_format">+ %d QIX gained from the transaction</string>
     <string name="payment_start_message">The payment will start in seconds</string>
     <string name="textview_email_recovery_instructions">Enter your email below and we will send you a verification code to reset your password</string>
     <string name="title_activity_verification_link">VerificationLinkActivity</string>
@@ -243,4 +243,6 @@ Or just contact us and we will sort it out.</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="QIX_CONTACT_LINK"><u>support@myqix.com</u></string>
+    <string name="myqix_item_tutorial">TUTORIALS</string>
 </resources>

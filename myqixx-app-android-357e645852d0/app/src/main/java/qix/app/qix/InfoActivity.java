@@ -73,7 +73,7 @@ public class InfoActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.callButton:
                 RequestActivity.builder()
-                        .withRequestSubject("Testing")
+                        .withRequestSubject("QIX Bug Report-User: "+ Helpers.getPreference(R.string.preference_user_id))
                         .withTags("Android", "testing")
                         .show(this);
                 break;

@@ -9,24 +9,25 @@
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="0dp"
-        android:layout_height="4dp"
+        android:layout_height="2dp"
         android:background="@color/zui_color_red_600"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
 
         <ProgressBar
             android:id="@+id/signupProgress"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="match_parent"
             android:layout_height="8dp"
-            android:layout_gravity="top"
+            android:layout_gravity="bottom"
             android:layout_marginTop="-3dp"
             android:background="@android:color/transparent"
             android:indeterminate="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent" />
     </FrameLayout>
 
     <qix.app.qix.helpers.custom_views.QixViewPager

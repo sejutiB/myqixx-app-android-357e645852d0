@@ -18,13 +18,22 @@ import android.widget.SearchView;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.amazonaws.mobile.client.AWSMobileClient;
+import com.amazonaws.mobile.client.UserStateDetails;
+import com.amazonaws.mobile.config.AWSConfiguration;
+import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
+import com.amazonaws.mobileconnectors.pinpoint.PinpointConfiguration;
+import com.amazonaws.mobileconnectors.pinpoint.PinpointManager;
+import com.apollographql.apollo.GraphQLCall;
+import com.apollographql.apollo.exception.ApolloException;
 import com.crashlytics.android.Crashlytics;
-import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.iid.FirebaseInstanceId;
-import com.squareup.picasso.Picasso;
+
 
 import java.util.ArrayList;
 
@@ -35,6 +44,8 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
+
+import javax.annotation.Nonnull;
 
 import qix.app.qix.fragments.HomeFragment;
 import qix.app.qix.fragments.QixTravelFragment;
@@ -69,8 +80,9 @@ public class MainActivity extends ShakeDetectorActivity implements SearchView.On
     private QixViewPager pager;
     private static int currentItem = 0;
     private QixFragmentPagerAdapter adapter;
-    private FusedLocationProviderClient fusedLocationClient;
     private Location currentlocationnetwork, currentlocationgps, currentlocationpassive;
+    private AWSAppSyncClient mAWSAppSyncClient;
+    private static PinpointManager pinpointManager;
 
 
     private BottomNavigationView navigation;
@@ -192,11 +204,16 @@ public class MainActivity extends ShakeDetectorActivity implements SearchView.On
             }
         });
 
-        if(!Helpers.getBooleanPreference(R.string.preference_is_first_run_key)){
+        if (!Helpers.getBooleanPreference(R.string.preference_is_first_run_key)) {
             Intent activityIntent = new Intent(this, ShakeTutorial.class);
             startActivity(activityIntent);
             Helpers.setPreference(R.string.preference_is_first_run_key, true);
         }
+
+        /**  mAWSAppSyncClient = AWSAppSyncClient.builder()
+         .context(getApplicationContext())
+         .awsConfiguration(new AWSConfiguration(getApplicationContext()))
+         .build();**/
 
     }
 
@@ -251,7 +268,7 @@ public class MainActivity extends ShakeDetectorActivity implements SearchView.On
             return;
         }
 
-        if (Helpers.isMockSettingsON(getApplicationContext()) && Helpers.areThereMockPermissionApps(getApplicationContext())) {
+       if (Helpers.isMockSettingsON(getApplicationContext()) && Helpers.areThereMockPermissionApps(getApplicationContext())) {
             Log.d(TAG, "Probably is mock location!");
         }
 
@@ -269,20 +286,6 @@ public class MainActivity extends ShakeDetectorActivity implements SearchView.On
 
         String locationProvider = locationManager.getBestProvider(criteria, true);
         Log.d(TAG, "LocationProvider: " + locationProvider);
-        /*fusedLocationClient.getLastLocation()
-                .addOnSuccessListener(this, new OnSuccessListener<Location>() {
-                    @Override
-                    public void onSuccess(Location location) {
-                        // Got last known location. In some rare situations this can be null.
-                        if (location != null) {
-                            // Logic to handle location object
-                            currentLocation = location;
-                            adapter.onLocationUpdate(location, false);
-                            Log.i("in fused", "Location: " + location.toString());
-
-                        }
-                    }
-                });*/
         // currentLocation = locationManager.getLastKnownLocation(locationProvider);
         try {
             currentlocationnetwork = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
@@ -290,12 +293,12 @@ public class MainActivity extends ShakeDetectorActivity implements SearchView.On
             e.printStackTrace();
         }
         try {
-             currentlocationpassive = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
+            currentlocationpassive = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
         } catch (Exception e) {
             e.printStackTrace();
         }
         try {
-             currentlocationgps = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            currentlocationgps = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -336,7 +339,7 @@ public class MainActivity extends ShakeDetectorActivity implements SearchView.On
 
         if (currentLocation != null) {
             adapter.onLocationUpdate(currentLocation, true);
-          //  Toast.makeText(this, currentLocation.getLatitude() + " g " + currentLocation.getLongitude(), Toast.LENGTH_SHORT).show();
+            //  Toast.makeText(this, currentLocation.getLatitude() + " g " + currentLocation.getLongitude(), Toast.LENGTH_SHORT).show();
         } else {
 
             locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, new LocationListener() {
@@ -345,14 +348,14 @@ public class MainActivity extends ShakeDetectorActivity implements SearchView.On
                 public void onLocationChanged(Location location) {
                     Log.d(TAG, "LocationN: " + location.toString());
 
-                    if (location.isFromMockProvider()) {
+                   if (location.isFromMockProvider()) {
                         locationManager.removeUpdates(this);
                     }
 
                     adapter.onLocationUpdate(location, currentLocation == null);
                     currentLocation = location;
                     Log.d("LocationUpdateN", currentLocation.getLatitude() + "");
-                  //  Toast.makeText(getApplicationContext(), currentLocation.getLatitude() + " N " + currentLocation.getLongitude(), Toast.LENGTH_SHORT).show();
+                    //  Toast.makeText(getApplicationContext(), currentLocation.getLatitude() + " N " + currentLocation.getLongitude(), Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
@@ -435,4 +438,39 @@ public class MainActivity extends ShakeDetectorActivity implements SearchView.On
             super.onBackPressed();
         }
     }
+  /*  public static PinpointManager getPinpointManager(final Context applicationContext) {
+        if (pinpointManager == null) {
+            final AWSConfiguration awsConfig = new AWSConfiguration(applicationContext);
+            AWSMobileClient.getInstance().initialize(applicationContext, awsConfig, new Callback<UserStateDetails>() {
+                @Override
+                public void onResult(UserStateDetails userStateDetails) {
+                   //* Log.i("INIT", userStateDetails.getUserState());
+                }
+
+                @Override
+                public void onError(Exception e) {
+                    Log.e("INIT", "Initialization error.", e);
+                }
+            });
+
+            PinpointConfiguration pinpointConfig = new PinpointConfiguration(
+                    applicationContext,
+                    AWSMobileClient.getInstance(),
+                    awsConfig);
+
+            pinpointManager = new PinpointManager(pinpointConfig);
+
+            FirebaseInstanceId.getInstance().getInstanceId()
+                    .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                            final String token = task.getResult().getToken();
+                            Log.d(TAG, "Registering push notifications token: " + token);
+                            pinpointManager.getNotificationClient().registerDeviceToken(token);
+                        }
+                    });
+        }
+        return pinpointManager;
+    }*/
+
 }

@@ -1,6 +1,7 @@
 package qix.app.qix.helpers;
 
 import android.app.Activity;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.shopify.buy3.GraphClient;
@@ -61,12 +62,13 @@ public class AsyncRequest {
     private static Retrofit mRetrofit = null;
 
     public static GraphClient getClient(Activity activity){
+        Log.i("client info", Constants.getShopInfo().shopDomain);
         return GraphClient.builder(activity)
                 .shopDomain(Constants.getShopInfo().shopDomain)
                 .accessToken(Constants.getShopInfo().apiKey)
                 .httpClient(mHttpClient.build())
-                .httpCache(new File(activity.getCacheDir(), "/http"), 10 * 1024 * 1024) // 10mb for http cache
-                .defaultHttpCachePolicy(HttpCachePolicy.CACHE_FIRST.expireAfter(5, TimeUnit.MINUTES)) // cached response valid by default for 5 minutes
+               //* .httpCache(new File(activity.getCacheDir(), "/http"), 10 * 1024 * 1024) // 10mb for http cache
+               //* .defaultHttpCachePolicy(HttpCachePolicy.NETWORK_ONLY)
                 .build();
     }
 
@@ -250,7 +252,7 @@ public class AsyncRequest {
 
     public static void shake(Activity activity, HashMap<String, String> data, Callback<ShakeResponse> cb){
         ShakeRequest shakeRequest = new ShakeRequest(data);
-        getApi(activity).shake(getIdToken(), shakeRequest).enqueue(cb);
+        getApi(activity, true, Constants.QIX_SHAKE_BASE_URL).shake(getIdToken(), shakeRequest).enqueue(cb);
     }
 
     public static void shakeAsync(Activity activity, HashMap<String, String> data, Callback<TransactionResponse> cb){

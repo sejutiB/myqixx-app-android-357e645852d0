@@ -29,7 +29,7 @@
   <string name="recovery_button">Recupera tu contraseña</string>
   <string name="create_account_button">Crear una cuenta</string>
   <string name="email_hint">Email</string>
-  <string name="password_hint">Contraseña</string>
+  <string name="password_hint">contraseña</string>
   <string name="localizationMessage">Activar GPS …</string>
   <string name="shareLocationMessage">Debes compartir tu ubicación …</string>
   <string name="venice_coin">MONETA VENEZIA</string>
@@ -157,4 +157,20 @@
   <string name="personal_data_signuot_advise">Una vez que hayas cambiado tus datos, deberás desconectarse, para que los cambios surtan efecto.</string>
   <string name="warning_alert_title">Atención</string>
   <string name="qix_exit_sure_message">¿Seguro que quieres salir?</string>
+    <string name="myqix_item_tutorial">TUTORIALS</string>
+  <string name="cannot_check_transaction_error">No se puede verificar la transacción</string>
+  <string name="checkout_button_title">Revisa</string>
+  <string name="choose_qix_title">Cantidad disponible en QIX</string>
+  <string name="close_button_title">Cerrar</string>
+  <string name="continue_button_title">Continuar</string>
+  <string name="deleteSlide">¿Estás seguro de eliminar este elemento?</string>
+  <string name="open_a_ticket">Contáctenos</string>
+  <string name="payment_start_message">El pago comenzará en segundos.</string>
+  <string name="qixpay_wait_for_approve">Su pago está pendiente de aprobación!</string>
+  <string name="recovery_password_title">Recuperación de contraseña</string>
+  <string name="save_button_title">salvar</string>
+  <string name="sign_in_trouble">Restablecer su contraseña</string>
+  <string name="sign_up_button_title">Regístrate</string>
+  <string name="textview_email_recovery_instructions">Ingrese su correo electrónico a continuación y le enviaremos un código de verificación para restablecer su contraseña.</string>
+  <string name="waiting_merchant_message">¡Esperando al comerciante!</string>
 </resources>

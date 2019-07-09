@@ -146,14 +146,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.07" />
+        app:layout_constraintGuide_percent="0.1" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/chartGuideLine7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.93" />
+        app:layout_constraintGuide_percent="0.9" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/chartGuideLine4"
@@ -231,9 +231,9 @@
     <Button
         android:id="@+id/minusButton"
         android:layout_width="0dp"
-        android:layout_height="1dp"
+        android:layout_height="0dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="5dp"
+        android:layout_marginEnd="15dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/aller_std_bold"
         android:text="-"
@@ -247,8 +247,8 @@
     <Button
         android:id="@+id/plusButton"
         android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="5dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="10dp"

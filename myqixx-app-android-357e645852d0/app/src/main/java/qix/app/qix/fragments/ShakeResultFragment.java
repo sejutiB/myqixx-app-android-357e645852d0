@@ -32,7 +32,7 @@ public class ShakeResultFragment extends Fragment {
         Boolean success = getArguments().getBoolean("success");
         String imageUrl = getArguments().getString("image");
         Integer code = getArguments().getInt("code");
-        getActivity().setTitle(success ? "Yeeee" : "Opsss");
+        getActivity().setTitle(success ? "Congratulations!" : " ");
 
         ImageView shakeImage =  view.findViewById(R.id.shakeResultImage);
         TextView shakeTextMessage = view.findViewById(R.id.shakeMessageText);

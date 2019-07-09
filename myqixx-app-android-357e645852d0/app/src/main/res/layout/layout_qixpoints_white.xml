@@ -5,7 +5,7 @@
     android:layout_width="350dp"
     android:layout_height="60dp"
     android:layout_gravity="center_horizontal"
-    android:background="@drawable/background_pink">
+    android:background="@drawable/background_pink2">
 
 
     <TextView
@@ -15,7 +15,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:fontFamily="@font/lato"
-        android:text="--"
+        android:text=" -- "
         android:textColor="@color/white"
         android:textSize="25sp" />
 

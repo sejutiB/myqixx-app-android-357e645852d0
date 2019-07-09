@@ -81,26 +81,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.23" />
 
 
     <ImageView
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/background_qix_pay"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/middleMargin"/>
+        android:padding="10dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintBottom_toBottomOf="@id/middleMargin"
+        app:layout_constraintRight_toRightOf="@id/rigthImageMargin"
+        app:layout_constraintLeft_toLeftOf="@id/leftImageMargin"
+        app:srcCompat="@drawable/qix_app_icon_new_white" />
 
     <Button
         android:id="@+id/signupCloseButton"
         android:layout_width="0dp"
         android:layout_height="40dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/button_background_red"
         android:text="sign in"
         android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="@+id/rigthInternalMargin"
         app:layout_constraintStart_toStartOf="@+id/leftInternalMargin"
-        app:layout_constraintTop_toBottomOf="@+id/bottomMargin" />
+        app:layout_constraintTop_toBottomOf="@+id/signupMessageTextView" />
 
     <TextView
         android:id="@+id/SignupTitle"
@@ -109,9 +113,9 @@
         android:fontFamily="@font/aller_std_regular"
         android:text="PASSWORD SAVED"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/topMargin"
+        app:layout_constraintTop_toTopOf="@+id/topMargin"
         app:layout_constraintEnd_toStartOf="@+id/rigthInternalMargin"
         app:layout_constraintStart_toStartOf="@+id/leftInternalMargin"
         />
@@ -125,7 +129,7 @@
         android:fontFamily="@font/aller_std_regular"
         android:text=" "
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@+id/SignupTitle"
         app:layout_constraintEnd_toStartOf="@+id/rigthInternalMargin"
@@ -136,11 +140,10 @@
         android:id="@+id/signupMessageTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop = "30dp"
         android:fontFamily="@font/aller_std_regular"
         android:text=" "
         android:textAlignment="center"
-        android:textColor="@color/redEnd"
+        android:textColor="@color/black"
         android:textSize="15sp"
         app:layout_constraintTop_toBottomOf="@+id/SignupMessage"
         app:layout_constraintEnd_toStartOf="@+id/rigthInternalMargin"

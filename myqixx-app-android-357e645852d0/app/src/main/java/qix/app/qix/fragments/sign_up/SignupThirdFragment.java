@@ -59,6 +59,7 @@ public class SignupThirdFragment extends Fragment implements Validator.Validatio
     private List<TextInputLayout> inputLayouts;
     private ProgressBar progressBar;
     private SignupFlowInterface signupFlow;
+    private Button signupButton;
 
     @Nullable
     @Override
@@ -78,7 +79,7 @@ public class SignupThirdFragment extends Fragment implements Validator.Validatio
         inputLayouts.add(passwordTextInputLayout);
         inputLayouts.add(repasswordTextInputLayout);
 
-        Button signupButton = view.findViewById(R.id.signupButton);
+        signupButton = view.findViewById(R.id.signupButton);
         progressBar = getActivity().findViewById(R.id.signupProgress);
 
         pager = getActivity().findViewById(R.id.signupViewPager);
@@ -100,6 +101,7 @@ public class SignupThirdFragment extends Fragment implements Validator.Validatio
     @Override
     public void onValidationSucceeded() {
         if(signupButtonPressed){
+            signupButton.setEnabled(false);
             progressBar.setVisibility(View.VISIBLE);
 
             secondPageData.put("password", password.getText().toString());

@@ -49,6 +49,7 @@ import java.io.IOException;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+
 import qix.app.qix.R;
 import qix.app.qix.vision.ui.camera.CameraSource;
 import qix.app.qix.vision.ui.camera.CameraSourcePreview;
@@ -91,10 +92,10 @@ public final class BarcodeCaptureActivity extends AppCompatActivity implements B
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-
+        setTitle("QIX Pay");
         setContentView(R.layout.activity_qrcode_reader);
 
-        mPreview =  findViewById(R.id.preview);
+        mPreview = findViewById(R.id.preview);
         mGraphicOverlay = findViewById(R.id.graphicOverlay);
 
         // read parameters from the intent used to launch the activity.
@@ -120,7 +121,7 @@ public final class BarcodeCaptureActivity extends AppCompatActivity implements B
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == android.R.id.home) {
+        if (item.getItemId() == android.R.id.home) {
             finish();
         }
         return super.onOptionsItemSelected(item);
@@ -171,7 +172,7 @@ public final class BarcodeCaptureActivity extends AppCompatActivity implements B
      * Creates and starts the camera.  Note that this uses a higher resolution in comparison
      * to other detection examples to enable the barcode detector to detect small barcodes
      * at long distances.
-     *
+     * <p>
      * Suppressing InlinedApi since there is a check that the minimum version is met before using
      * the constant.
      */
@@ -289,7 +290,7 @@ public final class BarcodeCaptureActivity extends AppCompatActivity implements B
         if (grantResults.length != 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             Log.d(TAG, "Camera permission granted - initialize the camera source");
             // we have permission, so create the camerasource
-            boolean autoFocus = getIntent().getBooleanExtra(AutoFocus,false);
+            boolean autoFocus = getIntent().getBooleanExtra(AutoFocus, false);
             boolean useFlash = getIntent().getBooleanExtra(UseFlash, false);
             createCameraSource(autoFocus, useFlash);
             return;
@@ -446,7 +447,7 @@ public final class BarcodeCaptureActivity extends AppCompatActivity implements B
         //do something with barcode data returned
 
         //check qr code data
-        if(validateBarcode(barcode)){
+        if (validateBarcode(barcode)) {
             Intent data = new Intent();
             data.putExtra(BarcodeObject, barcode);
             setResult(CommonStatusCodes.SUCCESS, data);
@@ -454,7 +455,7 @@ public final class BarcodeCaptureActivity extends AppCompatActivity implements B
         }
     }
 
-    private boolean validateBarcode(Barcode b){
+    private boolean validateBarcode(Barcode b) {
         String data = b.displayValue;
 
         String[] items = data.split("\\^");

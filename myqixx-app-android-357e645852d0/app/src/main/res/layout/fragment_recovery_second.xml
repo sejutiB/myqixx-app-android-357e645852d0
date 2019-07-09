@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.70" />
+        app:layout_constraintGuide_percent="0.65" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/leftMargin"
@@ -46,7 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.30" />
+        app:layout_constraintGuide_percent="0.35" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/topMargin"
@@ -77,12 +77,14 @@
         app:layout_constraintGuide_percent="0.8" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/background_recovery"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_margin="10dp"
+        android:background="@drawable/qix_app_icon_new_white"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toLeftOf="@id/leftImageMargin"
         app:layout_constraintBottom_toTopOf="@id/Margin_twenty_horizontal"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintRight_toRightOf="@id/rigthImageMargin">
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
@@ -111,6 +113,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="ConfirmationCode"
+            android:textColorHint="@color/ampm_text_color"
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -129,6 +132,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
+            android:textColorHint="@color/ampm_text_color"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -147,6 +151,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Confirm password"
+            android:textColorHint="@color/ampm_text_color"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 

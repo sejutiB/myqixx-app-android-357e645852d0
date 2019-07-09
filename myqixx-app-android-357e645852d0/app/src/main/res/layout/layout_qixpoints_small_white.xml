@@ -15,7 +15,7 @@
         android:text="--"
         android:textAlignment="viewStart"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -26,9 +26,9 @@
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="10dp"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/qixNumText"
         app:layout_constraintTop_toTopOf="parent"

@@ -166,6 +166,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/button_male_p"
                     android:text="male "
+                    android:textColor="@color/white"
                     />
 
                 <Button
@@ -174,7 +175,8 @@
                     android:layout_height="35dp"
                     android:layout_weight="1"
                     android:background="@drawable/button_female_a"
-                    android:text="female" />
+                    android:text="female"
+                    android:textColor="@color/white"/>
 
                 <Button
                     android:id="@+id/buttonneutral"
@@ -182,7 +184,8 @@
                     android:layout_height="35dp"
                     android:layout_weight="1"
                     android:background="@drawable/button_neutral_a"
-                    android:text="neutral" />
+                    android:text="neutral"
+                    android:textColor="@color/white"/>
             </LinearLayout>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -284,12 +287,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
+            app:ccpDialog_showPhoneCode="false"
             app:ccp_autoDetectCountry="true"
             app:ccp_autoDetectLanguage="true"
             app:ccp_showFullName="false"
             app:ccp_showNameCode="true"
-            app:ccp_showPhoneCode="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView_select_country_text" />

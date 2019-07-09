@@ -25,8 +25,8 @@ android {
         applicationId "qix.app.qix"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 40
-        versionName "0.0.2.8"
+        versionCode 45
+        versionName "0.0.3.1"
         testInstrumentationRunner "qix.app.qix.test_runner.DexTestRunner"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
@@ -47,6 +47,8 @@ android {
             initWith release
             matchingFallbacks = ['release']
 
+            buildConfigField "String", 'BUILD_VARIANT', '"prod"'
+            buildConfigField "String", 'SHAKE_BASE_URL', '"https://api.shake.prod.myqix.com/v0/"'
             buildConfigField "String", 'BASE_URL', '"https://api.app.myqix.com/v0/"'
             buildConfigField "String", 'ZENDESK_APP_ID', '"3ddae56ad79959beff07f7a03e1b036c756b6b551331764b"'
             buildConfigField "String", 'ZENDESK_CLIENT_ID', '"mobile_sdk_client_5c68da9f10f6adc80218"'
@@ -55,18 +57,20 @@ android {
             buildConfigField "String", 'PAYDOO_PASSWORD', '"N6Xz62a2gw"'
             buildConfigField "String", 'PAYDOO_ENTITY_ID', '"8ac9a4ce68c1e6670168f07e90be501a"'
             buildConfigField "String", 'PAYDOO_ENDPOINT', '"https://oppwa.com/v1/"'
-           // buildConfigField "String", 'KALIGO_SECRET', '"WHBAdhbVvQnfLPBRtpKHR4wB"'
+            // buildConfigField "String", 'KALIGO_SECRET', '"WHBAdhbVvQnfLPBRtpKHR4wB"'
             buildConfigField "String", 'KALIGO_SECRET', '"7tRZTeoe36q2aQse"'
-           // buildConfigField "String", 'KALIGO_BASE_URL', '"https://qix.kaligo.com/sign_in?login="'
+            // buildConfigField "String", 'KALIGO_BASE_URL', '"https://qix.kaligo.com/sign_in?login="'
             buildConfigField "String", 'KALIGO_BASE_URL', '"https://qix.kaligo.com/whitelabel/qix/sign_in?login="'
             buildConfigField "Integer", 'MAX_RADIUS', '30000'
             applicationIdSuffix ".prod"
         }
 
         stg {
-            initWith debug
-            matchingFallbacks = ['debug']
+            initWith release
+            matchingFallbacks = ['release']
 
+            buildConfigField "String", 'BUILD_VARIANT', '"stg"'
+            buildConfigField "String", 'SHAKE_BASE_URL', '"https://api.shake.stg.myqix.com/v0/"'
             buildConfigField "String", 'BASE_URL', '"https://api.app.stg.myqix.com/v0/"'
             buildConfigField "String", 'ZENDESK_APP_ID', '"dcda72583f19cb176892ec26d38a54734211e7e524e6dc66"'
             buildConfigField "String", 'ZENDESK_CLIENT_ID', '"mobile_sdk_client_a6483cbd48861f2eac60"'
@@ -83,7 +87,8 @@ android {
         dev {
             initWith debug
             matchingFallbacks = ['debug']
-
+            buildConfigField "String", 'BUILD_VARIANT', '"dev"'
+            buildConfigField "String", 'SHAKE_BASE_URL', '"https://api.shake.dev.myqix.com/v0/"'
             buildConfigField "String", 'BASE_URL', '"https://api.app.dev.myqix.com/v0/"'
             buildConfigField "String", 'ZENDESK_APP_ID', '"983b1886b452cf25f85704bbb3a55cf241dd2bb9358feb58"'
             buildConfigField "String", 'ZENDESK_CLIENT_ID', '"mobile_sdk_client_d716a7afc915de5e6aac"'
@@ -166,6 +171,10 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.2'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.github.jrvansuita:PickImage:2.2.4'
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    implementation 'jp.wasabeef:glide-transformations:3.0.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+
 
     implementation 'cat.xojan:numpad:1.1.0'
 
@@ -199,6 +208,16 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
 
     implementation project(path: ':croller')
+
+    //Base SDK
+    implementation 'com.amazonaws:aws-android-sdk-core:2.13.+'
+    //AppSync SDK
+    implementation 'com.amazonaws:aws-android-sdk-appsync:2.8.+'
+    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0'
+    implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
+    implementation 'com.amazonaws:aws-android-sdk-pinpoint:2.13.+'
+    implementation('com.amazonaws:aws-android-sdk-mobile-client:2.13.+@aar') { transitive = true }
 }
 
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.amazonaws.appsync'

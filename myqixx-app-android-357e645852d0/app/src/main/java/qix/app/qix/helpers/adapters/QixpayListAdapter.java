@@ -2,6 +2,7 @@ package qix.app.qix.helpers.adapters;
 
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,11 +16,15 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
+
+import qix.app.qix.MainActivity;
 import qix.app.qix.R;
+import qix.app.qix.fragments.qixpay.QixpayListFragment;
 import qix.app.qix.helpers.Helpers;
 import qix.app.qix.models.PartnerResponse;
 
@@ -30,12 +35,12 @@ public class QixpayListAdapter extends BaseAdapter implements Filterable {
     private final FragmentActivity context;
 
     private QixpayFilter qixpayFilter;
-    private List<PartnerResponse> qixPartners;
+    private List<PartnerResponse> partners;
     private List<PartnerResponse> filteredList;
 
     public QixpayListAdapter(FragmentActivity context, List<PartnerResponse> partners) {
         this.context = context;
-        this.qixPartners = partners;
+        this.partners = partners;
         this.filteredList = partners;
     }
 
@@ -98,7 +103,7 @@ public class QixpayListAdapter extends BaseAdapter implements Filterable {
     @Override
     public Filter getFilter() {
         if (qixpayFilter == null) {
-            qixpayFilter = new QixpayFilter();
+            qixpayFilter = new QixpayFilter(partners,this);
         }
 
         return qixpayFilter;
@@ -112,8 +117,15 @@ public class QixpayListAdapter extends BaseAdapter implements Filterable {
     public class QixpayFilter extends Filter {
 
         private String category;
+        private List<PartnerResponse> filter;
+        private QixpayListAdapter adapter;
 
-        @Override
+        public QixpayFilter(List<PartnerResponse> filter, QixpayListAdapter adapter){
+            this.filter=filter;
+            this.adapter=adapter;
+        }
+
+     /* @Override
         protected FilterResults performFiltering(CharSequence constraint) {
 
             FilterResults filterResults = new FilterResults();
@@ -164,7 +176,7 @@ public class QixpayListAdapter extends BaseAdapter implements Filterable {
             } else {
 
                 if(category != null && !category.isEmpty()){
-                    addItemsWithCategory(category, qixPartners, tempList);
+                    addItemsWithName(category, qixPartners, tempList);
 
                     filterResults.count = tempList.size();
                     filterResults.values = tempList;
@@ -175,6 +187,42 @@ public class QixpayListAdapter extends BaseAdapter implements Filterable {
             }
 
             return filterResults;
+        }*/
+
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            Log.i("inside filtering", "");
+            //RESULTS
+            FilterResults results=new FilterResults();
+
+            //VALIDATION
+            if(constraint != null && constraint.length()>0)
+            {
+
+                //CHANGE TO UPPER FOR CONSISTENCY
+                constraint=constraint.toString().toUpperCase();
+
+                List<PartnerResponse> tempList=new ArrayList<>();
+
+                //LOOP THRU FILTER LIST
+                for(int i=0;i<filter.size();i++)
+                {
+                    //FILTER
+                    if(filter.get(i).getName().toUpperCase().contains(constraint))
+                    {
+                        tempList.add(filter.get(i));
+                    }
+                }
+
+                results.count=tempList.size();
+                results.values=tempList;
+            }else
+            {
+                results.count=filter.size();
+                results.values=filter;
+            }
+
+            return results;
         }
 
         private void addItemsWithCategory(String c, List<PartnerResponse> fromArray, List<PartnerResponse> toArray){
@@ -229,7 +277,7 @@ public class QixpayListAdapter extends BaseAdapter implements Filterable {
         @SuppressWarnings("unchecked")
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
-            filteredList = (List<PartnerResponse>) results.values;
+            adapter.filteredList = (List<PartnerResponse>) results.values;
             notifyDataSetChanged();
         }
     }

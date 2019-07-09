@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: artifacts:audioRecordLib-release:unspecified@jar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fe42b570474843fdb5a9c5bfc6585350/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fe42b570474843fdb5a9c5bfc6585350/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d4c0f21ce9602878b483c7efb78c2b2a/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d4c0f21ce9602878b483c7efb78c2b2a/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

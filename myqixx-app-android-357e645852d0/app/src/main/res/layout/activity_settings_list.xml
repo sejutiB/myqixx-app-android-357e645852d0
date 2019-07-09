@@ -4,20 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context="qix.app.qix.SettingsActivityList">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_customSettings"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/temporary_actionbar"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Settings" />
 
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:fitsSystemWindows="true"
-        android:scaleType="centerCrop"
-        android:background="@drawable/background_ellipse2"
+        android:scaleType="fitXY"
+        android:background="@drawable/temporary_background"
         app:layout_constraintBottom_toTopOf="@id/Margin_background_image"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_customSettings"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
-    <TextView
+    <!--TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxHeight="50sp"
@@ -26,7 +36,7 @@
         android:textColor="@android:color/background_light"
         android:textSize="20sp"
         app:layout_constraintTop_toTopOf="parent"
-        />
+        /-->
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/profileIImageView2"
@@ -42,58 +52,6 @@
         app:riv_corner_radius="10dp"
         app:riv_oval="false" />
 
-    <Button
-        android:id="@+id/about_button"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/background1_marketplace_product"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:textAlignment="center"
-        android:text="About"
-        android:onClick="goToAboutActivity"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Margin_buttonTop1" />
-
-    <ImageView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/arrow_gray"
-        android:paddingRight="10dp"
-        app:layout_constraintBottom_toBottomOf="@id/about_button"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintRight_toRightOf="@id/about_button"
-        app:layout_constraintTop_toTopOf="@id/about_button" />
-
-    <ImageView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/arrow_gray"
-        android:paddingRight="10dp"
-        app:layout_constraintBottom_toBottomOf="@id/tutorial_button"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintRight_toRightOf="@id/tutorial_button"
-        app:layout_constraintTop_toTopOf="@id/tutorial_button" />
-
-    <Button
-        android:id="@+id/tutorial_button"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/background1_marketplace_product"
-        android:layout_marginTop="16dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:textAlignment="center"
-        android:text="Tutorial"
-        android:onClick="goToShakeTutorial"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/about_button" />
 
     <Button
         android:id="@+id/logout_button"
@@ -112,7 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.3" />
+        app:layout_constraintGuide_percent="0.25" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/Margin_bottom"
@@ -148,6 +106,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.38" />
+        app:layout_constraintGuide_percent="0.32" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/profileIImageView2"
+        app:layout_constraintBottom_toTopOf="@id/logout_button">
+
+        <ListView
+            android:id="@+id/ListView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:indicatorRight="?android:attr/expandableListPreferredItemIndicatorLeft"
+            app:layout_constraintTop_toBottomOf="@+id/profileIImageView" />
+
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

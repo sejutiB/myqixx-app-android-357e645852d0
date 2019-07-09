@@ -72,12 +72,12 @@
     <Button
         android:id="@+id/totalReviewButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="38dp"
         android:gravity="center_horizontal"
         android:background="@color/transparent"
         android:clickable="false"
         android:text="250"
-        android:textSize="42sp"
+        android:textSize="28sp"
         android:textColor="@color/white"
         app:layout_constraintTop_toTopOf="@+id/guideline32" />
 
@@ -153,7 +153,7 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/slider"
+        app:layout_constraintTop_toTopOf="@+id/slider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />

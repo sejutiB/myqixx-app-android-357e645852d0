@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/aller_std_light"
-        android:text="Your personal data"
+        android:text="Your Personal Data"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/leftMargin"
@@ -100,35 +100,60 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.95" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout3"
+    <LinearLayout
+        android:id="@+id/layout_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/textInputLayout4"
-        app:layout_constraintStart_toStartOf="@+id/leftMargin"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/textInputLayout2"
+        app:layout_constraintBottom_toTopOf="@id/personalBirthdateEditText"
+        app:layout_constraintLeft_toLeftOf="@id/textInputLayout2"
+        app:layout_constraintRight_toRightOf="@id/textInputLayout2">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/personalGenderEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/myqix_item_gender" />
-    </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:id="@+id/buttonmalePersonal"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_male_p"
+            android:text="male "
+            android:textColor="@color/white"
+            />
 
-    <com.google.android.material.textfield.TextInputLayout
+        <Button
+            android:id="@+id/buttonfemalePersonal"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_female_a"
+            android:text="female"
+            android:textColor="@color/white"/>
+
+        <Button
+            android:id="@+id/buttonneutralPersonal"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_neutral_a"
+            android:text="neutral"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+
+    <!--com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="@+id/rigthMargin"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/layout_button">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/personalBirthdateEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/myqix_item_birthdate" />
-    </com.google.android.material.textfield.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout-->
 
     <!--com.google.android.material.textfield.TextInputLayout
         android:layout_width="0dp"
@@ -144,16 +169,36 @@
             android:layout_height="wrap_content"
             android:hint="Country" />
     </com.google.android.material.textfield.TextInputLayout-->
+
+    <TextView
+        android:id="@+id/personalBirthdateEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Birthdate"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/rigthMargin"
+        app:layout_constraintStart_toStartOf="@+id/leftMargin"
+        app:layout_constraintTop_toBottomOf="@+id/layout_button"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/done_text_color_dark_disabled"
+        app:layout_constraintEnd_toStartOf="@+id/rigthMargin"
+        app:layout_constraintStart_toStartOf="@+id/leftMargin"
+        app:layout_constraintTop_toBottomOf="@+id/personalBirthdateEditText" />
     <TextView
         android:id="@+id/personalCountryEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="Country"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/rigthMargin"
         app:layout_constraintStart_toStartOf="@+id/leftMargin"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"/>
+        app:layout_constraintTop_toBottomOf="@+id/personalBirthdateEditText"/>
 
     <View
         android:layout_width="0dp"
@@ -216,7 +261,7 @@
         android:id="@+id/contactPhoneEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
         android:text="Phone number"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/rigthMargin"

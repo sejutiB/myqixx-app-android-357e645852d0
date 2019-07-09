@@ -78,7 +78,7 @@ public class SignupFourthFragment extends Fragment implements SignupFlowInterfac
     public void onSignupComplete(boolean success) {
       //  resultImageView.setImageResource(success ? R.drawable.qix_app_icon_new : R.drawable.sad);
         signupTitle.setText(success? "ACCOUNT CREATED":" \u26A0 Unable to create account");
-        signupmessage.setText(success? "Now you can login with the new password.": "");
+       // signupmessage.setText(success? "Now you can login with the new password.": "");
         messageTextView.setText(getResources().getString(success ? R.string.signup_success_message : R.string.signup_failed_message));
     }
 

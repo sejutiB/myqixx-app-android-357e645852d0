@@ -200,7 +200,7 @@ public class MyQixListFragment extends Fragment {
                     ProfileResponse result = response.body();
                     assert result != null;
                     Configuration.setUserId(result.getSub());
-                    Picasso.get().load(result.getImageUrl()).error(R.drawable.user_image).into(profileImage);
+                    Picasso.get().load(result.getImageUrl()).error(R.drawable.blankprofile).into(profileImage);
                 } else {
                     Helpers.presentToast("Error in uploading picture", Toast.LENGTH_SHORT);
                 }

@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -6,13 +6,14 @@
     tools:context="qix.app.qix.fragments.shaketutorial.shaketutorial_second">
 
     <com.makeramen.roundedimageview.RoundedImageView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="60dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:layout_marginTop="60dp"
-        android:src="@drawable/intro_slide_new2"
-        app:riv_corner_radius="40dp"
-        />
+        android:background="@drawable/background_gradient_3"
+        app:riv_corner_radius="15dp"
         />
 
     <!-- TODO: Update blank fragment layout -->
@@ -38,8 +39,8 @@
             android:id="@+id/nextbutton2"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/nav_home"
+            android:layout_margin="18dp"
+            android:background="@drawable/home_icon"
             app:layout_constraintBottom_toTopOf="@id/textmessage"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintLeft_toLeftOf="@id/guidelineleftimage"
@@ -122,4 +123,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

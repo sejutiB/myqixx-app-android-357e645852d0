@@ -5,6 +5,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,6 +20,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.makeramen.roundedimageview.RoundedImageView;
 import com.shopify.buy3.GraphCall;
 import com.shopify.buy3.GraphClient;
 import com.shopify.buy3.GraphError;
@@ -26,6 +31,7 @@ import com.shopify.buy3.Storefront;
 import com.squareup.picasso.Picasso;
 
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -45,11 +51,19 @@ import qix.app.qix.ProductDetailsActivity;
 import qix.app.qix.R;
 import qix.app.qix.helpers.AsyncRequest;
 import qix.app.qix.helpers.Constants;
+import qix.app.qix.models.Cart;
+import qix.app.qix.models.ExchangeRateResponse;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static com.bumptech.glide.request.RequestOptions.bitmapTransform;
 
 public class QixMarketplaceFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
     private List<Storefront.Product> products = new ArrayList<>();
     private ProductsAdapter adapter;
+    private TextView itemNumber;
 
     @BindView(R.id.productsGridView)
     GridView gridView;
@@ -59,6 +73,7 @@ public class QixMarketplaceFragment extends Fragment implements SwipeRefreshLayo
     @BindView(R.id.qixmarketplaceSwipeRefreshLayout)
     SwipeRefreshLayout refreshLayout;
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -67,6 +82,8 @@ public class QixMarketplaceFragment extends Fragment implements SwipeRefreshLayo
         ButterKnife.bind(this, view);
         setHasOptionsMenu(true);
         custom_Toolbar = view.findViewById(R.id.toolbar_custom_qixmarketplace);
+        itemNumber = view.findViewById(R.id.cartsize);
+
         adapter = new ProductsAdapter(getActivity(), products);
         gridView.setAdapter(adapter);
         Button toolbarButton = view.findViewById(R.id.button_qixmarketplace_cart);
@@ -83,15 +100,65 @@ public class QixMarketplaceFragment extends Fragment implements SwipeRefreshLayo
 
             Intent i = new Intent(getActivity(), ProductDetailsActivity.class);
             i.putExtra("product", p);
-
+            i.putExtra("rate", adapter.rate);
             startActivity(i);
         });
 
         refreshLayout.setOnRefreshListener(this);
 
-        getProducts();
+        //* getRate();
+        //* getProducts();
+
 
         return view;
+    }
+
+    @Override
+    public void setMenuVisibility(boolean isVisibleToUser) { // When fragment is visible to user
+        super.setMenuVisibility(isVisibleToUser);
+        if (isVisibleToUser) {
+            getRate();
+            getProducts();
+            itemNumber.setText(String.valueOf(Cart.get().totalQuantity()));
+            if (String.valueOf(Cart.get().totalQuantity()).equals("0")) {
+                itemNumber.setVisibility(View.INVISIBLE);
+            } else {
+                itemNumber.setVisibility(View.VISIBLE);
+            }
+        }
+    }
+
+    private void getRate() {
+        Constants.ShopInfo info = Constants.getShopInfo();
+
+        if (!info.originalcurrency.equals(info.currency)) {
+            AsyncRequest.getExchangeRate(getActivity(), "QIX" + info.originalcurrency, "QIX" + info.currency, new Callback<ExchangeRateResponse>() {
+                @Override
+                public void onResponse(Call<ExchangeRateResponse> call, Response<ExchangeRateResponse> response) {
+                    if (response.isSuccessful()) {
+                        ExchangeRateResponse result = response.body();
+                        adapter.rate = result.getRate();
+                        adapter.notifyDataSetChanged();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ExchangeRateResponse> call, Throwable t) {
+                    //ToDO error
+                }
+            });
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        itemNumber.setText(String.valueOf(Cart.get().totalQuantity()));
+        if (String.valueOf(Cart.get().totalQuantity()).equals("0")) {
+            itemNumber.setVisibility(View.INVISIBLE);
+        } else {
+            itemNumber.setVisibility(View.VISIBLE);
+        }
     }
 
     private void getProducts() {
@@ -156,6 +223,7 @@ public class QixMarketplaceFragment extends Fragment implements SwipeRefreshLayo
         });
     }
 
+
    /* private void getProducts(){
         this.getProducts(20);
     }*/
@@ -181,7 +249,7 @@ public class QixMarketplaceFragment extends Fragment implements SwipeRefreshLayo
     public class ProductsAdapter extends BaseAdapter {
 
         @BindView(R.id.productImageView)
-        ImageView backgroundImage;
+        RoundedImageView backgroundImage;
 
         @BindView(R.id.productTitleTextView)
         TextView title;
@@ -193,6 +261,7 @@ public class QixMarketplaceFragment extends Fragment implements SwipeRefreshLayo
         TextView qix;
 
         private Context context;
+        private Double rate = 1.0;
         private List<Storefront.Product> products;
 
         ProductsAdapter(Context context, List<Storefront.Product> products) {
@@ -223,7 +292,13 @@ public class QixMarketplaceFragment extends Fragment implements SwipeRefreshLayo
             List<Storefront.ProductVariant> variants = new ArrayList<>();
             if (p.getVariants() != null) {
                 for (Storefront.ProductVariantEdge variantEdge : p.getVariants().getEdges()) {
-                    variants.add(variantEdge.getNode());
+                    Storefront.ProductVariant v = variantEdge.getNode();
+                    Log.d("RATE", v.getPrice().doubleValue() + " " + rate + "");
+                 /*   if(rate != 1.0){
+                        v.setPrice(new BigDecimal((v.getPrice().doubleValue() * rate)));
+                    }*/
+                    variants.add(v);
+
                 }
                 return variants.get(0);
             }
@@ -250,18 +325,33 @@ public class QixMarketplaceFragment extends Fragment implements SwipeRefreshLayo
             title.setText(product.getTitle());
 
             assert variant != null;
-            price.setText(String.format("%.2f %s", variant.getPrice().doubleValue(), Constants.getShopInfo().currency));
-
+            price.setText(String.format("%.2f %s", variant.getPrice().doubleValue() * rate, Constants.getShopInfo().currency));
+            Log.i("get currency", Constants.getShopInfo().currency);
             int qixNum = 0;
-            String percent = variant.getTitle().split("/")[1].replaceAll("\\D+", "");
-            if (!percent.isEmpty()) {
-                qixNum = (int) Math.ceil(variant.getPrice().doubleValue() * Integer.valueOf(percent).doubleValue());
+            String percent = null;
+            try {
+                percent = variant.getTitle().split("/")[1].replaceAll("\\D+", "");
+            } catch (Exception e) {
+                Log.i("percent error", e.getMessage());
+            }
+            if (percent != null && !percent.isEmpty()) {
+                qixNum = (int) Integer.valueOf(percent);
             }
 
 
-            qix.setText(" + "+String.valueOf(qixNum));
+            qix.setText(" + " + String.valueOf(qixNum));
 
-            Picasso.get().load(product.getImages().getEdges().get(0).getNode().getTransformedSrc()).into(backgroundImage);
+            //  Picasso.get().load(product.getImages().getEdges().get(0).getNode().getTransformedSrc()).into(backgroundImage);
+            //  Glide.with(Objects.requireNonNull(getActivity())).load(product.getImages().getEdges().get(0).getNode().getTransformedSrc()).into(backgroundImage);
+            try {
+                Glide
+                        .with(Objects.requireNonNull(getActivity()))
+                        .load(product.getImages().getEdges().get(0).getNode().getTransformedSrc())
+                        .apply(bitmapTransform(new RoundedCorners(40)))
+                        .into(backgroundImage);
+            } catch (Exception e) {
+                Log.i("marketplace crash", e.getMessage());
+            }
 
             return gridView;
         }

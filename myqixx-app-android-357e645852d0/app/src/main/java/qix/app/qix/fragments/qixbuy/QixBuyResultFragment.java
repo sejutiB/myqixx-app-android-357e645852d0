@@ -148,15 +148,15 @@ public class QixBuyResultFragment extends Fragment implements QixBuyFlowInterfac
 
             switch (resultCode) {
                 case CheckoutActivity.RESULT_OK:
-                    updateResultView("Controllo il pagamento...");
+                    updateResultView("Checking the payment...");
                     startBuyTransaction(currentCheckuotId);
                     break;
                 case CheckoutActivity.RESULT_CANCELED:
-                    updateResultView("Pagamento cancellato...");
+                    updateResultView("Payment cancelled...");
                     new Handler().postDelayed(() -> Objects.requireNonNull(getActivity()).finish(),1500);
                     break;
                 case CheckoutActivity.RESULT_ERROR:
-                    updateResultView("Errore di pagamento...");
+                    updateResultView("Payment error...");
                     new Handler().postDelayed(() -> Objects.requireNonNull(getActivity()).finish(),1500);
                     break;
             }
@@ -248,7 +248,7 @@ public class QixBuyResultFragment extends Fragment implements QixBuyFlowInterfac
                         switch(status) {
                             case "ACCEPTED":
                                 Timber.d("TRANSAZIONE COMPLETATA");
-                                updateResultView(true, true, "Pagamento completato!");
+                                updateResultView(true, true, "Payment complete!");
                                 break;
                             case "":
                             case "PENDING":
@@ -257,7 +257,7 @@ public class QixBuyResultFragment extends Fragment implements QixBuyFlowInterfac
                                 break;
                             case "REJECTED":
                                 Timber.d("TRANSAZIONE FALLITA");
-                                updateResultView(false, true, "Errore pagamento!");
+                                updateResultView(false, true, "Payment error!");
                                 break;
                         }
                     }else{

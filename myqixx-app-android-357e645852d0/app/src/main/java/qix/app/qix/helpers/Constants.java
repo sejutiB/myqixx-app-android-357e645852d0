@@ -1,5 +1,7 @@
 package qix.app.qix.helpers;
 
+import android.util.Log;
+
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -49,11 +51,13 @@ public class Constants {
         public String shopDomain;
         public String apiKey;
         public String currency;
+        public String originalcurrency;
 
-        public ShopInfo(String d, String a, String c){
+        public ShopInfo(String d, String a, String c, String o){
            this.shopDomain = d;
            this.apiKey = a;
            this.currency = c;
+           this.originalcurrency = o;
         }
     }
 
@@ -81,6 +85,7 @@ public class Constants {
     static final String MAP_STATIC_IMAGE_URL_FORMAT_SIGNED = MAP_STATIC_BASE_URL + "/maps/api/staticmap?markers=%.5f,%.5f&zoom=13&size=300x300&sensor=false&key=%s";
 
     public static final String QIX_BASE_URL = BuildConfig.BASE_URL;
+    public static final String QIX_SHAKE_BASE_URL = BuildConfig.SHAKE_BASE_URL;
 
     public static final String KALIGO_SIGN_IN_URL = BuildConfig.KALIGO_BASE_URL;
     static final String KALIGO_SECRET_KEY = BuildConfig.KALIGO_SECRET;
@@ -145,18 +150,26 @@ public class Constants {
     public static ShopInfo getShopInfo(){
 
         if(Configuration.getUserCountry() != null){
+            Log.i("constant info", "-"+Configuration.getUserCountry()+"-");
             switch(Configuration.getUserCountry()){
                 case "MX":
-                    return new ShopInfo("qix-shop-mexico.myshopify.com", "85ed1d8a7658537e09cf4f7a8a31e2bf", "MXN");
+                    return new ShopInfo("qix-shop-mexico.myshopify.com", "85ed1d8a7658537e09cf4f7a8a31e2bf", "MXN", "MXN");
                 case "ZA":
-                    return new ShopInfo("qix-shop-safrica.myshopify.com", "d77d9c34bb37411e8f6da1ca0db44e07", "ZAR");
+                    return new ShopInfo("qix-shop-safrica.myshopify.com", "d77d9c34bb37411e8f6da1ca0db44e07", "ZAR", "EUR");
                 case "NL":
-                    return new ShopInfo("qix-shop-netherlands.myshopify.com", "a0990b8351b2e64600312e6bfe1466d9", "EUR");
+                    return new ShopInfo("qix-shop-netherlands.myshopify.com", "a0990b8351b2e64600312e6bfe1466d9", "EUR", "EUR");
+
+                    // temporary fix for existent users in south Africa
+                case "South Africa":
+                    return new ShopInfo("qix-shop-safrica.myshopify.com", "d77d9c34bb37411e8f6da1ca0db44e07", "ZAR", "EUR");
+
                 default:
-                    return new ShopInfo("qix-shop.myshopify.com", "c2400a459a0342739b5909224fc50bc5", "EUR");
+                   return new ShopInfo("qix-shop.myshopify.com", "c2400a459a0342739b5909224fc50bc5", "EUR", "EUR");
+
             }
         }else{
-            return new ShopInfo("qix-shop.myshopify.com", "c2400a459a0342739b5909224fc50bc5", "EUR");
+            Log.i("constant info else", "-"+Configuration.getUserCountry()+"-");
+            return new ShopInfo("qix-shop.myshopify.com", "c2400a459a0342739b5909224fc50bc5", "EUR", "EUR");
         }
 
 

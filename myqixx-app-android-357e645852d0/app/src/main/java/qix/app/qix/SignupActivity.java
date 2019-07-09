@@ -8,9 +8,11 @@ import android.widget.ProgressBar;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import qix.app.qix.fragments.sign_up.SignupFirstFragment;
 import qix.app.qix.fragments.sign_up.SignupFourthFragment;
@@ -31,8 +33,8 @@ public class SignupActivity extends AppCompatActivity implements SignupFlowInter
         super.onCreate(savedInstanceState);
 
         setTitle("Signup");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
+      //*  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+      //* getSupportActionBar().setHomeButtonEnabled(true);
         setContentView(R.layout.activity_signup);
 
         pager = findViewById(R.id.signupViewPager);
@@ -52,7 +54,7 @@ public class SignupActivity extends AppCompatActivity implements SignupFlowInter
         pager.setAdapter(adapter);
     }
 
-    @Override
+   @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == android.R.id.home) {
             if(pager.getCurrentItem() > 0){

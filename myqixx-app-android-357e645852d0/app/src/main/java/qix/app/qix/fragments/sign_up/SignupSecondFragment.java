@@ -272,6 +272,7 @@ public class SignupSecondFragment extends Fragment implements Validator.Validati
         progressBar = getActivity().findViewById(R.id.signupProgress);
 
        birthDateEditText.setKeyListener(null);
+       birthDateEditText.setFocusable(true);
         // currencyNumberEditText.setKeyListener(null);
 
       /*  currencyPicker = CurrencyPicker.newInstance("Select Currency");  // dialog title
@@ -310,8 +311,9 @@ public class SignupSecondFragment extends Fragment implements Validator.Validati
         // datePicker.setOnCancelListener(dialogInterface -> birthDateEditText.clearFocus());
 
 
-        birthDateEditText.setOnFocusChangeListener((view13, hasFocus) -> {
-            if (hasFocus) {
+        birthDateEditText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
                final Calendar cldr = Calendar.getInstance();
                 int day = cldr.get(Calendar.DAY_OF_MONTH);
@@ -329,13 +331,13 @@ public class SignupSecondFragment extends Fragment implements Validator.Validati
                                 int month = pick.getMonth()+1;
                                 int year = pick.getYear();
                                 String m= format("%02d", month);
-                                birthDateEditText.setText(day+"/"+m+"/"+year);
+                                String d = format("%02d", day);
+                                birthDateEditText.setText(d+"/"+m+"/"+year);
                             }
                         }, year, month, day);
 
                 datepicker.setView(dateview);
                 datepicker.show();
-
             }
         });
 
@@ -393,7 +395,7 @@ public class SignupSecondFragment extends Fragment implements Validator.Validati
             // firstPageData.put("address_postcode", postCodeNumberEditText.getText().toString());
             firstPageData.put("qixCurrency", selectCurrency());
             firstPageData.put("birthdate", birthDateEditText.getText().toString());
-            firstPageData.put("address_country", countryCodePicker.getSelectedCountryName());
+            firstPageData.put("address_country", countryCodePicker.getSelectedCountryNameCode());
             firstPageData.put("gender", gender);
             firstPageData.put("locale", countryCodePicker.getSelectedCountryNameCode());
 

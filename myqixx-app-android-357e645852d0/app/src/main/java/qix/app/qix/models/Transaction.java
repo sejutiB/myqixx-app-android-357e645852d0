@@ -168,6 +168,8 @@ public class Transaction implements Serializable {
         String nameString;
         switch(getType()){
 
+          //  case SHAKE:
+               // nameString = "SHAKE";
             case BUY:
                 nameString = "QIXBUY";
                 break;
@@ -181,7 +183,7 @@ public class Transaction implements Serializable {
                  nameString = name;
         }
 
-        data.add(new Constants.TransactionData("Partner Name", nameString));
+       data.add(new Constants.TransactionData("Partner Name", nameString));
         data.add(new Constants.TransactionData("State", stateTransaction));
         data.add(new Constants.TransactionData("Type", type));
         data.add(new Constants.TransactionData("Identifier", transactionId));

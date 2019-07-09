@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/aller_std_regular"
-        android:text="Transazione completata!"
+        android:text="Transaction complete!"
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline15"

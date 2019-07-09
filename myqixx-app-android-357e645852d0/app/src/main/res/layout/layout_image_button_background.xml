@@ -43,12 +43,13 @@
         app:layout_constraintVertical_bias="1.0"
         app:riv_corner_radius="20dp" /-->
 
-    <ImageView
+    <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/imageView9"
         android:layout_width="0dp"
         android:layout_height="220dp"
         android:layout_marginTop="10dp"
-        app:srcCompat="@drawable/background1_marketplace_product"
+        app:riv_corner_radius="20dp"
+        android:background="@drawable/background1_marketplace_product"
         app:layout_constraintEnd_toStartOf="@+id/guideline36"
         app:layout_constraintStart_toStartOf="@+id/guideline35"
         app:layout_constraintTop_toTopOf="parent"
@@ -58,17 +59,14 @@
         android:id="@+id/mainOfferImage"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="5dp"
-        android:adjustViewBounds="false"
+        android:layout_marginTop="10dp"
         android:background="@drawable/background2_marketplace_product"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="@id/guideline"
         app:layout_constraintEnd_toStartOf="@+id/guideline36"
         app:layout_constraintStart_toStartOf="@+id/guideline35"
         app:layout_constraintTop_toTopOf="parent"
-        app:riv_corner_radius="30dp"/>
+        app:riv_corner_radius="20dp"/>
 
 
     <androidx.constraintlayout.widget.Guideline

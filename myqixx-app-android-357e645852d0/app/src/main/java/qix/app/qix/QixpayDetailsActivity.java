@@ -3,6 +3,7 @@ package qix.app.qix;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 
 import com.makeramen.roundedimageview.RoundedImageView;
@@ -35,10 +36,11 @@ public class QixpayDetailsActivity extends AppCompatActivity {
        //* ImageView map = findViewById(R.id.mapImageview);
         RoundedImageView map = findViewById(R.id.mapImageview);
         //Button pay = findViewById(R.id.qixpayButton);
-
         ImageView logo = findViewById(R.id.logoImageView);
 
         partner = (PartnerResponse) getIntent().getSerializableExtra("partner");
+        TextView partnerAdress = findViewById(R.id.partnerAddress);
+        partnerAdress.setText(partner.getAddress());
 
        /* if(partner.getAmount() != null){
             amountText.setText(String.format(getString(R.string.double_string_format), partner.getAmount()));

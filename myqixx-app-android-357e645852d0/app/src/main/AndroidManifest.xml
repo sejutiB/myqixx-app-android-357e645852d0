@@ -39,21 +39,24 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning,HardcodedDebugMode"
         tools:replace="android:allowBackup,icon">
-        <activity android:name=".SettingsActivityList"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"
-            >
-        </activity>
-        <activity android:name=".ShakeTutorial"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            >
+        <service
+            android:name=".helpers.services.PushListenerService"
+            android:enabled="true"
+            android:exported="true"></service>
 
-        </activity>
+        <activity android:name=".TutorialsActivity" />
+        <activity
+            android:name=".SettingsActivityList"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ShakeTutorial"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".FAQActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:label="FAQ" />
+            android:label="FAQ"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".VerificationLinkActivity"
             android:label="QIX account verification"
@@ -88,6 +91,7 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+        <service android:name="org.eclipse.paho.android.service.MqttService" />
 
         <activity
             android:name="com.oppwa.mobile.connect.checkout.dialog.CheckoutActivity"
@@ -184,30 +188,33 @@
         <activity
             android:name=".SignupActivity"
             android:configChanges="orientation"
-            android:screenOrientation="sensorPortrait" />
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".RecoveryPasswordActivity"
             android:configChanges="orientation"
-            android:screenOrientation="sensorPortrait" />
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".PersonalDataActivity"
             android:configChanges="orientation"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="sensorPortrait" />
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".WebviewActivity"
             android:configChanges="orientation"
+            android:label="Checkout"
             android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".TermActivity"
             android:configChanges="orientation"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="sensorPortrait" />
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".AboutActivity"
             android:configChanges="orientation"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="sensorPortrait" />
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".QixbuyActivity"
             android:configChanges="orientation"

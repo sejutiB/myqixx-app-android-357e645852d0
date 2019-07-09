@@ -20,6 +20,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+
 import qix.app.qix.fragments.ListeningFragment;
 import qix.app.qix.fragments.ShakeResultFragment;
 import qix.app.qix.helpers.AsyncRequest;
@@ -47,7 +48,7 @@ public class AudioScanningActivity extends AppCompatActivity implements SoundCod
 
         mWakeLock = ((PowerManager) Objects.requireNonNull(getSystemService(Context.POWER_SERVICE))).newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK, getClass().getName());
 
-        mWakeLock.acquire(120*1000L /*1 minutes*/);
+        mWakeLock.acquire(120 * 1000L /*1 minutes*/);
 
         Helpers.switchFragment(this, new ListeningFragment(), R.id.scan_fragment);
 
@@ -71,13 +72,13 @@ public class AudioScanningActivity extends AppCompatActivity implements SoundCod
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if(requestCode == 1){
+        if (requestCode == 1) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 SoundCodeSettings scs = new SoundCodeSettings();
                 scs.counterLength = 0;
                 SoundCode.instance(this).prepare(scs, AudioScanningActivity.this, true);
             }
-        }else{
+        } else {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
@@ -85,7 +86,7 @@ public class AudioScanningActivity extends AppCompatActivity implements SoundCod
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        if(item.getItemId() == android.R.id.home) {
+        if (item.getItemId() == android.R.id.home) {
             SoundCode.release();
             finish();
         }
@@ -115,7 +116,10 @@ public class AudioScanningActivity extends AppCompatActivity implements SoundCod
 
             Log.d(TAG, "Sending data: " + data.toString());
 
-            this.startShakeAsync(data);
+            if (BuildConfig.BUILD_VARIANT.equals("dev"))
+                this.startShake(data);
+            else
+                this.startShakeAsync(data);
 
             /*AsyncRequest.shake(this, data, new Callback<ShakeResponse>() {
                 @Override
@@ -188,7 +192,7 @@ public class AudioScanningActivity extends AppCompatActivity implements SoundCod
         }
     }
 
-    private void startShakeAsync(HashMap<String, String> data){
+    private void startShakeAsync(HashMap<String, String> data) {
         AsyncRequest.shakeAsync(this, data, new Callback<TransactionResponse>() {
             @Override
             public void onResponse(@NonNull Call<TransactionResponse> call, @NonNull Response<TransactionResponse> response) {
@@ -198,8 +202,8 @@ public class AudioScanningActivity extends AppCompatActivity implements SoundCod
                     assert result != null;
                     Log.d("TRANSACTION ID", result.getTransactionId());
                     startShakeTransaction(result.getTransactionId(), 0);
-                }else{
-                   // assert result != null;
+                } else {
+                    // assert result != null;
                     ShakeResultFragment shakeFragment = new ShakeResultFragment();
                     Bundle bundle = new Bundle();
                     bundle.putBoolean("success", false);
@@ -226,23 +230,75 @@ public class AudioScanningActivity extends AppCompatActivity implements SoundCod
         });
     }
 
-    private void startShakeTransaction(final String transactionId, final int times){
+    private void startShake(HashMap<String, String> data) {
+        AsyncRequest.shake(this, data, new Callback<ShakeResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<ShakeResponse> call, @NonNull Response<ShakeResponse> response) {
+                if (response.isSuccessful()) {
+                    ShakeResponse result = response.body();
+                    assert result != null;
+                    if (!result.isSuccessfull()) {
+                        ShakeResultFragment shakeFragment = new ShakeResultFragment();
+                        Bundle bundle = new Bundle();
+                        bundle.putBoolean("success", false);
+                        bundle.putString("image", null);
+                        bundle.putInt("code", 500);
+                        shakeFragment.setArguments(bundle);
+                        Helpers.switchFragment(AudioScanningActivity.this, shakeFragment, R.id.scan_fragment);
+                    } else {
+                        ShakeResultFragment shakeFragment = new ShakeResultFragment();
+                        Bundle bundle = new Bundle();
+                        if (result.hasWin()) {
+                            Log.d(TAG, "You win!");
+                            String imageUrl = result.getImageLink();
+                            bundle.putBoolean("success", true);
+                            bundle.putString("image", imageUrl);
+                            String desc = result.getUserMessage();
+                            bundle.putString("description", desc);
+                            bundle.putInt("code", 200);
+                        } else {
+                            bundle.putBoolean("success", false);
+                            bundle.putString("text", "Non hai vinto, riprova più tardi!");
+                            bundle.putInt("code", 201);
+                        }
+                        shakeFragment.setArguments(bundle);
+                        Helpers.switchFragment(AudioScanningActivity.this, shakeFragment, R.id.scan_fragment);
+                    }
+                } else {
+                    ShakeResultFragment shakeFragment = new ShakeResultFragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putBoolean("success", false);
+                    bundle.putString("image", null);
+                    bundle.putInt("code", response.code());
+                    shakeFragment.setArguments(bundle);
+                    Helpers.switchFragment(AudioScanningActivity.this, shakeFragment, R.id.scan_fragment);
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ShakeResponse> call, @NonNull Throwable t) {
+                Log.d(TAG, "Errore " + t.getLocalizedMessage());
+            }
+        });
+    }
+
+    private void startShakeTransaction(final String transactionId, final int times) {
         AsyncRequest.shakeAsyncResult(this, transactionId, new Callback<ShakeResponse>() {
             @Override
             public void onResponse(@NonNull Call<ShakeResponse> call, @NonNull Response<ShakeResponse> response) {
-                if(response.isSuccessful()){
+                if (response.isSuccessful()) {
                     ShakeResponse result = response.body();
                     assert result != null;
-                    if(!result.isSuccessfull()){
-                        if(times < 20) {
-                            Log.d("Tentivo", (times+1) + " di 20");
+                    if (!result.isSuccessfull()) {
+                        if (times < 20) {
+                            Log.d("Tentivo", (times + 1) + " di 20");
                             new Handler().postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
                                     startShakeTransaction(transactionId, times + 1);
                                 }
                             }, 4000);
-                        }else{
+                        } else {
                             ShakeResultFragment shakeFragment = new ShakeResultFragment();
                             Bundle bundle = new Bundle();
                             bundle.putBoolean("success", false);
@@ -252,7 +308,7 @@ public class AudioScanningActivity extends AppCompatActivity implements SoundCod
                             shakeFragment.setArguments(bundle);
                             Helpers.switchFragment(AudioScanningActivity.this, shakeFragment, R.id.scan_fragment);
                         }
-                    }else{
+                    } else {
                         ShakeResultFragment shakeFragment = new ShakeResultFragment();
                         Bundle bundle = new Bundle();
 
@@ -270,14 +326,14 @@ public class AudioScanningActivity extends AppCompatActivity implements SoundCod
 
                         } else {
                             bundle.putBoolean("success", false);
-                            bundle.putString("text", "Non hai vinto, riprova più tardi!");
+                            bundle.putString("text", "You didn't win, try again later!");
                             bundle.putInt("code", 201);
                         }
 
                         shakeFragment.setArguments(bundle);
                         Helpers.switchFragment(AudioScanningActivity.this, shakeFragment, R.id.scan_fragment);
                     }
-                }else{
+                } else {
                     ShakeResultFragment shakeFragment = new ShakeResultFragment();
                     Bundle bundle = new Bundle();
                     bundle.putBoolean("success", false);
@@ -306,7 +362,7 @@ public class AudioScanningActivity extends AppCompatActivity implements SoundCod
 
     @Override
     protected void onPause() {
-        if(isFinishing()) {
+        if (isFinishing()) {
             SoundCode.release();
         }
         super.onPause();
@@ -314,7 +370,7 @@ public class AudioScanningActivity extends AppCompatActivity implements SoundCod
 
     @Override
     public void onAudioInitFailed() {
-        runOnUiThread(() -> Helpers.presentToast("Errore audio", Toast.LENGTH_SHORT));
+        runOnUiThread(() -> Helpers.presentToast("Audio error", Toast.LENGTH_SHORT));
         Log.d(TAG, "Errore AUDIO sconosciuto");
     }
 }

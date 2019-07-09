@@ -4,10 +4,11 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryDark">@color/light_gray</item>-->
-        <item name="colorPrimary">#ED1B24</item>
+        <item name="colorPrimary">#660000</item>
         <item name="colorPrimaryDark">#660000</item>
         <item name="colorAccent">#000000</item>
     </style>
+
 
     <style name="NoUiAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@null</item>

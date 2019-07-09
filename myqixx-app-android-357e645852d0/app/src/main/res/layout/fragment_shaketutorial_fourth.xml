@@ -6,12 +6,14 @@
     tools:context="qix.app.qix.fragments.shaketutorial.shaketutorial_fourth">
 
     <com.makeramen.roundedimageview.RoundedImageView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="60dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:layout_marginTop="60dp"
-        android:src="@drawable/intro_slide_new2"
-        app:riv_corner_radius="40dp"
+        android:background="@drawable/background_gradient_3"
+        app:riv_corner_radius="15dp"
         />
     <!-- TODO: Update blank fragment layout -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,8 +28,6 @@
             app:lottie_fileName="festoons-animation.json"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
-            app:lottie_speed="2"
-            app:lottie_repeatCount="2"
             app:layout_constraintBottom_toTopOf="@id/nextshake3"
             app:layout_constraintEnd_toEndOf="@id/guidelineright"
             app:layout_constraintStart_toStartOf="@id/guidelineleft"
